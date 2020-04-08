@@ -8,7 +8,7 @@
 
 #import <Cordova/CDVPlugin.h>
 #import <AirTurnInterface/AirTurnInterface.h>
-#import "AirTurnUIPeripheralController.h"
+// #import "AirTurnUIPeripheralController.h"
 #import <AirTurnInterface/AirTurnKeyboardManager.h>
 
 #ifndef IBInspectable
