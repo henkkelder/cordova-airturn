@@ -10,7 +10,7 @@
 
 #import <Cordova/CDVAvailability.h>
 #import "AirTurn.h"
-// #import "CocoaLumberjack.h"
+#import "CocoaLumberjack.h"
 #import "AirTurnUIConnectionController.h"
 
 #if AirTurnPlayPauseiPod
