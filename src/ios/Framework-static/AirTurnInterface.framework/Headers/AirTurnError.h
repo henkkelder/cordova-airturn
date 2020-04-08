@@ -12,7 +12,7 @@
 /**
  `AirTurnCentral` error domain
  */
-extern NSString * const _Nonnull AirTurnCentralErrorDomain;
+extern NSErrorDomain const _Nonnull AirTurnCentralErrorDomain;
 
 /**
  `AirTurnCentral` error codes
@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, AirTurnCentralError) {
 /**
  `AirTurnPeripheral` error domain
  */
-extern NSString * _Nonnull const AirTurnPeripheralErrorDomain;
+extern NSErrorDomain _Nonnull const AirTurnPeripheralErrorDomain;
 
 /**
  `AirTurnPeripheral` error codes
@@ -142,10 +142,10 @@ typedef NS_ENUM(NSInteger, AirTurnPeripheralError) {
 /**
  The UUID string of the service the error occurred on
  */
-extern NSString * _Nonnull const AirTurnPeripheralErrorServiceKey;
+extern NSErrorUserInfoKey _Nonnull const AirTurnPeripheralErrorServiceKey;
 
 /**
  The incompatible model number NSString that was discovered for this device
  */
-extern NSString * _Nonnull const AirTurnPeripheralErrorIncompatibleModelNumberKey;
+extern NSErrorUserInfoKey _Nonnull const AirTurnPeripheralErrorIncompatibleModelNumberKey;
 

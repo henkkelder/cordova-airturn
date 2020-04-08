@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AirTurnInterface/AirTurnInterface.h>
-#import "AirTurnUIPeripheralController.h"
 
 #ifndef IBInspectable
 #define IBInspectable
@@ -56,25 +55,6 @@
  */
 - (nonnull instancetype)initSupportingKeyboardAirTurn:(BOOL)keyboard AirDirectAirTurn:(BOOL)AirDirect;
 
-#pragma mark Basic
-/**
- AirTurn UI delegate
- */
-@property(nonatomic, weak, nullable) IBOutlet id <AirTurnUIDelegate> delegate;
-
-/**
- The currently displayed peripheral controller, nil if none is displayed
- */
-@property(nonatomic, readonly, nullable) AirTurnUIPeripheralController * displayedPeripheralController;
-
-/**
- Present the peripheral detail view in the navigation controller
- 
- @param peripheral The AirTurn peripheral to present
- @param animated whether to animate the controller or not
- */
-- (void)presentAirTurnPeripheralControllerForPeripheral:(nonnull AirTurnPeripheral *)peripheral animated:(BOOL)animated;
-
 #pragma mark Advanced
 /**
  An array of all displayed peripherals, ordered as in table view
@@ -103,14 +83,6 @@
  @return A description of the key
  */
 + (nullable NSString *)keyDescriptionFromKeyCode:(AirTurnKeyCode)keyCode;
-
-
-/**
- Set the class to be used for peripheral UI.
-
- @param peripheralClass The class to use for peripheral UI. Must be a subclass of AirTurnUIPeripheralController
- */
-+ (void)setUIPeripheralClass:(nonnull Class)peripheralClass;
 
 /**
  Override in subclasses in order to insert other sections in table view
@@ -154,20 +126,17 @@
 
 @end
 
+typedef NS_ENUM(NSUInteger, AirTurnErrorContext) {
+	AirTurnErrorContextNone,
+	AirTurnErrorContextConnecting,
+};
 
-/**
- The AirTurnUI delegate
- */
-@protocol AirTurnUIDelegate <NSObject>
+typedef NS_ENUM(NSUInteger, AirTurnErrorHandlingResult) {
+	AirTurnErrorHandlingResultNotHandled,
+	AirTurnErrorHandlingResultNoError,
+	AirTurnErrorHandlingResultAlert,
+	AirTurnErrorHandlingResultModelNotSupported,
+};
 
-@optional
-
-/**
- Indicates the controller is about to display a peripheral controller
- 
- @param connectionController The connection controller
- @param peripheralController The peripheral controller
- */
-- (void)AirTurnUI:(nonnull AirTurnUIConnectionController *)connectionController willDisplayPeripheral:(nonnull AirTurnUIPeripheralController *)peripheralController;
-
-@end
+#define AirTurnUILocalizedString(key, comment) \
+[AirTurnUIBundle localizedStringForKey:(key) value:@"" table:@"AirTurnUI"]

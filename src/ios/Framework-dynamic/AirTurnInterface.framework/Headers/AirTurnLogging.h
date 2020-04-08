@@ -82,17 +82,8 @@ typedef NS_ENUM(NSUInteger, AirTurnLogLevel){
 
 /**
  Set the framework logging level. Only logs this severe or more will be logged.
- 
- @param logLevel The desired log level
  */
-+ (void)setFrameworkLogLevel:(AirTurnLogLevel)logLevel;
-
-/**
- If you use CocoaLumberjack in your project but don't want AirTurn to use it (for whatever reason) then you can disable it here. By default CocoaLumberjack is used if available and no delegate is set.
- 
- @param useCocoaLumberjack `YES` to use CocoaLumberjack if available, `NO` to disable.
- */
-+ (void)setUseCocoaLumberjack:(BOOL)useCocoaLumberjack;
+@property(class, nonatomic, assign) AirTurnLogLevel frameworkLogLevel;
 
 /**
  This class is not designed to be initialized.
