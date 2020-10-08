@@ -1,17 +1,20 @@
-/* Underlying error message suffix */
+﻿/* Underlying error message suffix */
 " (Underlying error: %@)" = " (Underlying error: %@)";
-
-/* text for json parse error key path */
-" at key path %@" = " at key path %@";
 
 /* Error message context format */
 " when %@" = " when %@";
 
 /* AirDirect unsupported text */
-"%$1@ is not supported in this App. You can connect %1$@ AirTurns in modes 2-6" = "%$1@ is not supported in this App. You can connect %1$@ AirTurns in modes 2-6";
+"%1$@ is not supported in this App. You can connect %1$@ AirTurns in modes 2+" = "%1$@ is not supported in this App. You can connect %1$@ AirTurns in modes 2+";
+
+/* Port action configuration title */
+"%@ action" = "%@ action";
 
 /* AirDirect unavailable text */
-"%@ is not supported on this device, set your AirTurn to keyboard modes and connect in iOS settings" = "%@ is not supported on this device, set your AirTurn to keyboard modes and connect in iOS settings";
+"%@ is not supported on this device, set your AirTurn to mode 2+ and connect in iOS settings" = "%@ is not supported on this device, set your AirTurn to mode 2+ and connect in iOS settings";
+
+/* AirDirect unauthorized text */
+"%@ requires permission to use Bluetooth to directly connect to AirTurns. Tap here to go to iOS settings to enable permission" = "%@ requires permission to use Bluetooth to directly connect to AirTurns. Tap here to go to iOS settings to enable permission";
 
 /* Contact support error message suffix */
 ". If the problem continues to occur, contact AirTurn support" = ". If the problem continues to occur, contact AirTurn support";
@@ -52,9 +55,6 @@
 /* 9 key pressed */
 "9" = "9";
 
-/* peripheral accessory button alert message */
-"\"%@\" will automatically reconnect to this App when it is available. Would you like to forget the AirTurn to prevent it autoconnecting?" = "\"%@\" will automatically reconnect to this App when it is available. Would you like to forget the AirTurn to prevent it autoconnecting?";
-
 /* A key pressed */
 "A" = "A";
 
@@ -64,65 +64,51 @@
 /* Charging fault error message */
 "A fault occurred while charging. Disconnect the power supply and reconnect. If the issue persists, contact AirTurn support" = "A fault occurred while charging. Disconnect the power supply and reconnect. If the issue persists, contact AirTurn support";
 
-/* Product name */
+/* Add keyboard airturn footer text */
+"Add \"Keyboard AirTurn\" for BT-105, DIGIT, DIGIT2, QUAD and STOMP 6 support" = "Add \"Keyboard AirTurn\" for BT-105, DIGIT, DIGIT2, QUAD and STOMP 6 support";
+
+/* The text in the heading above the list of devices that can be added */
+"Add AirDirect AirTurn" = "Add AirDirect AirTurn";
+
+/* Add keyboard airturn cell text */
+"Add Keyboard AirTurn" = "Add Keyboard AirTurn";
+
+/* Heading for AirTurns connected to the App */
+"Added to App" = "Added to App";
+
+/* Again key pressed */
+"Again" = "Again";
+
+/* AirTurn title
+   Product name */
 "AirTurn" = "AirTurn";
-
-/* AirTurn no toggle enabled message */
-"AirTurn BT-105 support is enabled" = "AirTurn BT-105 support is enabled";
-
-/* AirTurn connection mode section heading */
-"AirTurn Connection Mode" = "AirTurn Connection Mode";
-
-/* AirTurn is not available on your device message */
-"AirTurn is not available on your device" = "AirTurn is not available on your device";
 
 /* Text to display next to the enable AirTurn switch */
 "AirTurn Support" = "AirTurn Support";
 
-/* AirTurn update alert title */
-"AirTurn Update Found" = "AirTurn Update Found";
+/* AirTurn no toggle enabled message */
+"AirTurn support is enabled" = "AirTurn support is enabled";
+
+/* AirTurn UI footer version text */
+"AirTurnUI Version %@" = "AirTurnUI Version %@";
 
 /* AirTurn already bonded title */
 "Already bonded" = "Already bonded";
 
-/* Fetching feed update error message */
-"An error occurred fetching the feed" = "An error occurred fetching the feed";
-
-/* Extracting update update error message */
-"An error occurred while extracting the update" = "An error occurred while extracting the update";
-
-/* Fetching update update error message */
-"An error occurred while fetching the update" = "An error occurred while fetching the update";
-
-/* Parsing feed update error message */
-"An error occurred while parsing the feed" = "An error occurred while parsing the feed";
-
-/* Parsing update update error message */
-"An error occurred while parsing the update" = "An error occurred while parsing the update";
-
-/* Verifying firmware update error message */
-"An error occurred while verifying the firmware" = "An error occurred while verifying the firmware";
-
-/* Verifying update update error message */
-"An error occurred while verifying the update" = "An error occurred while verifying the update";
+/* AlternateErase key pressed */
+"AlternateErase" = "AlternateErase";
 
 /* Unknown error message */
 "An unknown error occurred. If this keeps happening, try updating the App or contact support. (%@)" = "An unknown error occurred. If this keeps happening, try updating the App or contact support. (%@)";
 
-/* Already updating peripheral update error message */
-"An update is already in progress" = "An update is already in progress";
+/* Analog ports section title when app actions available */
+"Analog input actions" = "Analog input actions";
 
-/* Update not supported error message */
-"An update is available but it cannot be performed by this version of the App. Update the App and try again" = "An update is available but it cannot be performed by this version of the App. Update the App and try again";
+/* Analog ports section title */
+"Analog inputs" = "Analog inputs";
 
-/* AirTurn update alert message */
-"An update is available for %@" = "An update is available for %@";
-
-/* App Store button title */
-"App Store" = "App Store";
-
-/* Configuration restore error continue without restoring confirmation title */
-"Are you sure?" = "Are you sure?";
+/* Application key pressed */
+"Application" = "Application";
 
 /* B key pressed */
 "B" = "B";
@@ -131,37 +117,34 @@
 "Backslash" = "Backslash";
 
 /* Bluetooth powered off message */
-"Bluetooth is powered off, enable in iOS Settings" = "Bluetooth is powered off, enable in iOS Settings";
+"Bluetooth is powered off, tap here to go to iOS Settings" = "Bluetooth is powered off, tap here to go to iOS Settings";
 
 /* C key pressed */
 "C" = "C";
 
-/* Cancel */
+/* Cancel key pressed */
 "Cancel" = "Cancel";
-
-/* Configuration restore error cancel action */
-"Cancel/Disconnect" = "Cancel/Disconnect";
 
 /* Charging fault alert title */
 "Charging fault" = "Charging fault";
 
-/* Checking for updates context */
-"checking for updates" = "checking for updates";
+/* Clear key pressed */
+"Clear" = "Clear";
+
+/* Clear/Again key pressed */
+"Clear/Again" = "Clear/Again";
 
 /* Comma key pressed */
 "Comma" = "Comma";
 
-/* Config fetch error title */
-"Config fetch error" = "Config fetch error";
+/* Connected AirTurn label */
+"Connected" = "Connected";
 
-/* Configuration parse error title */
-"Config parse error" = "Config parse error";
+/* Connecting AirTurn label */
+"Connecting" = "Connecting";
 
 /* Connecting context */
 "connecting" = "connecting";
-
-/* Connecting connection state */
-"Connecting" = "Connecting";
 
 /* connection timed out central error message
    Connection timed out peripheral error message */
@@ -170,14 +153,14 @@
 /* Connection timed out message */
 "Connection to the AirTurn timed out.  Please check the device is on and in range.  Otherwise please try forgetting the device from iOS Bluetooth settings" = "Connection to the AirTurn timed out.  Please check the device is on and in range.  Otherwise please try forgetting the device from iOS Bluetooth settings";
 
-/* Configuration restore error continue without restoring action */
-"Continue without restoring" = "Continue without restoring";
+/* Copy key pressed */
+"Copy" = "Copy";
 
-/* Could not read file peripheral update error message */
-"Could not read the update file" = "Could not read the update file";
+/* CrSel/Props key pressed */
+"CrSel/Props" = "CrSel/Props";
 
-/* Could not save configuration data error message */
-"Could not save configuration data for restoring" = "Could not save configuration data for restoring";
+/* Cut key pressed */
+"Cut" = "Cut";
 
 /* D key pressed */
 "D" = "D";
@@ -185,17 +168,14 @@
 /* Delete key pressed */
 "Delete" = "Delete";
 
-/* The text in the heading above the list of devices */
-"DEVICES" = "DEVICES";
+/* Digital ports section title when app actions available */
+"Digital input actions" = "Digital input actions";
 
-/* AirDirect unauthorized text */
-"Direct connection to your AirTurn is not available as permission was not given. To connect directly to AirTurn devices, tap here to go to iOS settings for this app and enable Bluetooth support." = "Direct connection to your AirTurn is not available as permission was not given. To connect directly to AirTurn devices, tap here to go to iOS settings for this app and enable Bluetooth support.";
+/* Digital ports section title */
+"Digital inputs" = "Digital inputs";
 
-/* Disconnecting connection state */
-"Disconnecting" = "Disconnecting";
-
-/* Discovering connection state */
-"Discovering" = "Discovering";
+/* Disconnected AirTurn label */
+"Disconnected" = "Disconnected";
 
 /* Discovery timed out peripheral error message */
 "Discovery timed out" = "Discovery timed out";
@@ -204,8 +184,20 @@
    Error dismiss button */
 "Dismiss" = "Dismiss";
 
+/* Port 3 title for directional pad devices */
+"Down" = "Down";
+
+/* Down Arrow key pressed */
+"Down Arrow" = "Down Arrow";
+
 /* E key pressed */
 "E" = "E";
+
+/* End key pressed */
+"End" = "End";
+
+/* Port 5 title for directional pad devices */
+"Enter" = "Enter";
 
 /* Equal key pressed */
 "Equal" = "Equal";
@@ -216,29 +208,104 @@
 /* Service discovery peripheral error message */
 "Error discovering the device services" = "Error discovering the device services";
 
-/* Write control peripheral update error message */
-"Error writing update control" = "Error writing update control";
-
 /* Default error title */
 "Error!" = "Error!";
+
+/* Escape key pressed */
+"Escape" = "Escape";
+
+/* Execute key pressed */
+"Execute" = "Execute";
+
+/* ExSel key pressed */
+"ExSel" = "ExSel";
 
 /* F key pressed */
 "F" = "F";
 
-/* Fetching default configuration context */
-"fetching default configuration" = "fetching default configuration";
+/* F1 key pressed */
+"F1" = "F1";
 
-/* Fetching update context */
-"fetching update" = "fetching update";
+/* F10 key pressed */
+"F10" = "F10";
 
-/* Text to display on automatic keyboard management cell */
+/* F11 key pressed */
+"F11" = "F11";
+
+/* F12 key pressed */
+"F12" = "F12";
+
+/* F13 key pressed */
+"F13" = "F13";
+
+/* F14 key pressed */
+"F14" = "F14";
+
+/* F15 key pressed */
+"F15" = "F15";
+
+/* F16 key pressed */
+"F16" = "F16";
+
+/* F17 key pressed */
+"F17" = "F17";
+
+/* F18 key pressed */
+"F18" = "F18";
+
+/* F19 key pressed */
+"F19" = "F19";
+
+/* F2 key pressed */
+"F2" = "F2";
+
+/* F20 key pressed */
+"F20" = "F20";
+
+/* F21 key pressed */
+"F21" = "F21";
+
+/* F22 key pressed */
+"F22" = "F22";
+
+/* F23 key pressed */
+"F23" = "F23";
+
+/* F24 key pressed */
+"F24" = "F24";
+
+/* F3 key pressed */
+"F3" = "F3";
+
+/* F4 key pressed */
+"F4" = "F4";
+
+/* F5 key pressed */
+"F5" = "F5";
+
+/* F6 key pressed */
+"F6" = "F6";
+
+/* F7 key pressed */
+"F7" = "F7";
+
+/* F8 key pressed */
+"F8" = "F8";
+
+/* F9 key pressed */
+"F9" = "F9";
+
+/* Find key pressed */
+"Find" = "Find";
+
+/* AirDirect other devices footer text */
+"For BT200(S), PED(pro), DIGIT3 and QUAD200 ensure the AirTurn is in mode 1 and not connected to another device, then you can select it in the list above" = "For BT200(S), PED(pro), DIGIT3 and QUAD200 ensure the AirTurn is in mode 1 and not connected to another device, then you can select it in the list above";
+
+/* Cell label for the keyboard management toggle */
 "Force Keyboard" = "Force Keyboard";
 
-/* Forget */
-"Forget" = "Forget";
-
-/* peripheral accessory button alert title */
-"Forget AirTurn?" = "Forget AirTurn?";
+/* Cell label for forgetting an AirTurn */
+"Forget this AirTurn" = "Forget this AirTurn";
 
 /* Forward Delete key pressed */
 "Forward Delete" = "Forward Delete";
@@ -255,29 +322,62 @@
 /* H key pressed */
 "H" = "H";
 
+/* Help key pressed */
+"Help" = "Help";
+
+/* Home key pressed */
+"Home" = "Home";
+
 /* I key pressed */
 "I" = "I";
 
-/* Automatic keyboard managment toggle description */
-"If on, the virtual keyboard will be forced on screen when a text box is active and a BT-105 or external keyboard is connected" = "If on, the virtual keyboard will be forced on screen when a text box is active and a BT-105 or external keyboard is connected";
+/* Keyboard management footer */
+"If on, the on screen keyboard will be forced on screen when a text box is active even though an external \"keyboard\" (the AirTurn) is connected" = "If on, the on screen keyboard will be forced on screen when a text box is active even though an external \"keyboard\" (the AirTurn) is connected";
 
-/* JSON parse error incomplete */
-"Incomplete configuration" = "Incomplete configuration";
+/* Analog input number */
+"Input %ld" = "Input %ld";
 
-/* JSON parse error Internal parse error */
-"Internal error" = "Internal error";
+/* Ports section title when app actions available */
+"Input actions" = "Input actions";
+
+/* Ports section title */
+"Inputs" = "Inputs";
+
+/* Insert key pressed */
+"Insert" = "Insert";
 
 /* Write too large peripheral error message */
 "Internal error: attribute write too large" = "Internal error: attribute write too large";
 
-/* Invalid command peripheral update error message */
-"Internal error: invalid update command written" = "Internal error: invalid update command written";
-
 /* Attribute write failed peripheral error message */
 "Internal error: write failed" = "Internal error: write failed";
 
-/* JSON parse error invalid characters */
-"Invalid characters in configuration" = "Invalid characters in configuration";
+/* International1 key pressed */
+"International1" = "International1";
+
+/* International2 key pressed */
+"International2" = "International2";
+
+/* International3 key pressed */
+"International3" = "International3";
+
+/* International4 key pressed */
+"International4" = "International4";
+
+/* International5 key pressed */
+"International5" = "International5";
+
+/* International6 key pressed */
+"International6" = "International6";
+
+/* International7 key pressed */
+"International7" = "International7";
+
+/* International8 key pressed */
+"International8" = "International8";
+
+/* International9 key pressed */
+"International9" = "International9";
 
 /* Invalid data peripheral error message */
 "Invalid data" = "Invalid data";
@@ -291,38 +391,146 @@
 /* K key pressed */
 "K" = "K";
 
-/* JSON parse error key invalid */
-"Key invalid" = "Key invalid";
+/* Port 6 title for directional pad devices */
+"Keyboard" = "Keyboard";
 
-/* JSON parse error key missing */
-"Key missing" = "Key missing";
+/* Keyboard AirTurn cell text */
+"Keyboard AirTurn" = "Keyboard AirTurn";
 
-/* JSON parse error key not expected type */
-"Key not expected type" = "Key not expected type";
+/* Port 6 title for PED/PEDpro */
+"Keyboard Button" = "Keyboard Button";
 
-/* KP Multiply key pressed */
-"KP Multiply" = "KP Multiply";
+/* Keypad * key pressed */
+"Keypad *" = "Keypad *";
 
-/* KP Plus key pressed */
-"KP Plus" = "KP Plus";
+/* Keypad + key pressed */
+"Keypad +" = "Keypad +";
+
+/* Keypad , key pressed */
+"Keypad ," = "Keypad ,";
+
+/* Keypad - key pressed */
+"Keypad -" = "Keypad -";
+
+/* Keypad . or Delete key pressed */
+"Keypad . or Delete" = "Keypad . or Delete";
+
+/* Keypad / key pressed */
+"Keypad /" = "Keypad /";
+
+/* Keypad 0 or Insert key pressed */
+"Keypad 0 or Insert" = "Keypad 0 or Insert";
+
+/* Keypad 1 or End key pressed */
+"Keypad 1 or End" = "Keypad 1 or End";
+
+/* Keypad 2 or Down Arrow key pressed */
+"Keypad 2 or Down Arrow" = "Keypad 2 or Down Arrow";
+
+/* Keypad 3 or Page Down key pressed */
+"Keypad 3 or Page Down" = "Keypad 3 or Page Down";
+
+/* Keypad 4 or Left Arrow key pressed */
+"Keypad 4 or Left Arrow" = "Keypad 4 or Left Arrow";
+
+/* Keypad 5 key pressed */
+"Keypad 5" = "Keypad 5";
+
+/* Keypad 6 or Right Arrow key pressed */
+"Keypad 6 or Right Arrow" = "Keypad 6 or Right Arrow";
+
+/* Keypad 7 or Home key pressed */
+"Keypad 7 or Home" = "Keypad 7 or Home";
+
+/* Keypad 8 or Up Arrow key pressed */
+"Keypad 8 or Up Arrow" = "Keypad 8 or Up Arrow";
+
+/* Keypad 9 or Page Up key pressed */
+"Keypad 9 or Page Up" = "Keypad 9 or Page Up";
+
+/* Keypad = key pressed */
+"Keypad =" = "Keypad =";
+
+/* Keypad Enter key pressed */
+"Keypad Enter" = "Keypad Enter";
+
+/* Keypad NumLock or Clear key pressed */
+"Keypad NumLock or Clear" = "Keypad NumLock or Clear";
 
 /* L key pressed */
 "L" = "L";
 
+/* LANG1 key pressed */
+"LANG1" = "LANG1";
+
+/* LANG2 key pressed */
+"LANG2" = "LANG2";
+
+/* LANG3 key pressed */
+"LANG3" = "LANG3";
+
+/* LANG4 key pressed */
+"LANG4" = "LANG4";
+
+/* LANG5 key pressed */
+"LANG5" = "LANG5";
+
+/* LANG6 key pressed */
+"LANG6" = "LANG6";
+
+/* LANG7 key pressed */
+"LANG7" = "LANG7";
+
+/* LANG8 key pressed */
+"LANG8" = "LANG8";
+
+/* LANG9 key pressed */
+"LANG9" = "LANG9";
+
 /* Device footer view for BT-105 indicating last key pressed */
 "Last key pressed: %@" = "Last key pressed: %@";
+
+/* Port 2 title for directional pad devices */
+"Left" = "Left";
+
+/* Left Alt key pressed */
+"Left Alt" = "Left Alt";
+
+/* Left Arrow key pressed */
+"Left Arrow" = "Left Arrow";
 
 /* Left Bracket key pressed */
 "Left Bracket" = "Left Bracket";
 
-/* Text to display before mode switch info webpage has loaded */
-"Loading..." = "Loading...";
+/* Left Control key pressed */
+"Left Control" = "Left Control";
+
+/* Left GUI key pressed */
+"Left GUI" = "Left GUI";
+
+/* Port 1 title for PED/PEDpro */
+"Left Pedal" = "Left Pedal";
+
+/* Left Shift key pressed */
+"Left Shift" = "Left Shift";
+
+/* Locking Caps Lock key pressed */
+"Locking Caps Lock" = "Locking Caps Lock";
+
+/* Locking num lock key pressed */
+"Locking Num Lock" = "Locking Num Lock";
+
+/* Locking Scroll Lock key pressed */
+"Locking Scroll Lock" = "Locking Scroll Lock";
 
 /* M key pressed */
 "M" = "M";
 
 /* AirTurn max number of AirTurns */
 "Max number of AirTurns" = "Max number of AirTurns";
+
+/* Menu key pressed */
+"Menu" = "Menu";
 
 /* Minus key pressed */
 "Minus" = "Minus";
@@ -333,17 +541,32 @@
 /* Missing services peripheral error message */
 "Missing services" = "Missing services";
 
-/* Mode switch info title */
-"Mode help" = "Mode help";
+/* Non airdirect mode alert title */
+"Mode 2+" = "Mode 2+";
 
 /* Model not supported error title */
 "Model not supported!" = "Model not supported!";
 
-/* Update more information button */
-"More info" = "More info";
+/* Analog input section footer */
+"Moving an input on your AirTurn will highlight it in the list above" = "Moving an input on your AirTurn will highlight it in the list above";
+
+/* Mute key pressed */
+"Mute" = "Mute";
 
 /* N key pressed */
 "N" = "N";
+
+/* No AirTurns connected cell text */
+"No AirTurns connected" = "No AirTurns connected";
+
+/* None */
+"None" = "None";
+
+/* NonUSBackslash key pressed */
+"NonUSBackslash" = "NonUSBackslash";
+
+/* NonUSPound key pressed */
+"NonUSPound" = "NonUSPound";
 
 /* Update available not now dismiss button */
 "Not now" = "Not now";
@@ -354,23 +577,89 @@
 /* OK button title */
 "OK" = "OK";
 
-/* Data too large peripheral update error message */
-"OTA update data was too large" = "OTA update data was too large";
+/* Oper key pressed */
+"Oper" = "Oper";
+
+/* Out key pressed */
+"Out" = "Out";
 
 /* P key pressed */
 "P" = "P";
 
-/* Page down key pressed */
+/* Page Down key pressed */
 "Page Down" = "Page Down";
 
 /* Page Up key pressed */
 "Page Up" = "Page Up";
 
-/* Performing update context */
-"performing update" = "performing update";
+/* Paste key pressed */
+"Paste" = "Paste";
+
+/* Pause key pressed */
+"Pause" = "Pause";
+
+/* Port 1 title for Many pedal devices */
+"Pedal 1" = "Pedal 1";
+
+/* Port 3 title for Many pedal devices */
+"Pedal 2" = "Pedal 2";
+
+/* Port 2 title for Many pedal devices */
+"Pedal 3" = "Pedal 3";
+
+/* Port 4 title for Many pedal devices */
+"Pedal 4" = "Pedal 4";
+
+/* Port 5 title for Many pedal devices */
+"Pedal 5" = "Pedal 5";
+
+/* Port 6 title for Many pedal devices */
+"Pedal 6" = "Pedal 6";
+
+/* Port 7 title for Many pedal devices */
+"Pedal 7" = "Pedal 7";
+
+/* Port 8 title for Many pedal devices */
+"Pedal 8" = "Pedal 8";
 
 /* Period key pressed */
 "Period" = "Period";
+
+/* Port 1 title for Port devices */
+"Port 1" = "Port 1";
+
+/* Port 2 title for Port devices */
+"Port 2" = "Port 2";
+
+/* Port 3 title for Port devices */
+"Port 3" = "Port 3";
+
+/* Port 4 title for Port devices */
+"Port 4" = "Port 4";
+
+/* Port 5 title for Port devices */
+"Port 5" = "Port 5";
+
+/* Port 6 title for Port devices */
+"Port 6" = "Port 6";
+
+/* Port 7 title for Port devices */
+"Port 7" = "Port 7";
+
+/* Port 8 title for Port devices */
+"Port 8" = "Port 8";
+
+/* Power key pressed */
+"Power" = "Power";
+
+/* Digital input section footer */
+"Pressing an input on your AirTurn will highlight it in the list above" = "Pressing an input on your AirTurn will highlight it in the list above";
+
+/* Print Screen key pressed */
+"Print Screen" = "Print Screen";
+
+/* Prior key pressed */
+"Prior" = "Prior";
 
 /* Problem connecting error title */
 "Problem connecting" = "Problem connecting";
@@ -387,20 +676,32 @@
 /* Button to initiate reconnection */
 "Reconnect" = "Reconnect";
 
-/* Reconnection timeout peripheral update error message */
-"Reconnection timed out after performing the update. Try toggling Bluetooth off and on, either from control centre (swipe up from the bottom of your screen) or iOS settings, and if that doesn't work, try reinserting the battery in your device" = "Reconnection timed out after performing the update. Try toggling Bluetooth off and on, either from control centre (swipe up from the bottom of your screen) or iOS settings, and if that doesn't work, try reinserting the battery in your device";
-
-/* Restoring connection state */
-"Restoring" = "Restoring";
-
-/* Restoring configuration context */
-"restoring configuration" = "restoring configuration";
-
 /* Return key pressed */
 "Return" = "Return";
 
+/* Port 4 title for directional pad devices */
+"Right" = "Right";
+
+/* Right Alt key pressed */
+"Right Alt" = "Right Alt";
+
+/* Right Arrow key pressed */
+"Right Arrow" = "Right Arrow";
+
 /* Right Bracket key pressed */
 "Right Bracket" = "Right Bracket";
+
+/* Right Control key pressed */
+"Right Control" = "Right Control";
+
+/* Right GUI key pressed */
+"Right GUI" = "Right GUI";
+
+/* Port 3 title for PED/PEDpro */
+"Right Pedal" = "Right Pedal";
+
+/* Right Shift key pressed */
+"Right Shift" = "Right Shift";
 
 /* S key pressed */
 "S" = "S";
@@ -408,14 +709,61 @@
 /* Text to display in the placeholder for the list of devices when none have been found */
 "Scanning..." = "Scanning...";
 
+/* Scroll lock key pressed */
+"Scroll lock" = "Scroll lock";
+
+/* Select key pressed */
+"Select" = "Select";
+
 /* Semicolon key pressed */
 "Semicolon" = "Semicolon";
+
+/* Separator key pressed */
+"Separator" = "Separator";
 
 /* Slash key pressed */
 "Slash" = "Slash";
 
 /* Space key pressed */
 "Space" = "Space";
+
+/* Stop key pressed */
+"Stop" = "Stop";
+
+/* Port 1 title for ports and pad devices
+   Port 1 title for Switch devices */
+"Switch 1" = "Switch 1";
+
+/* Port 2 title for ports and pad devices
+   Port 3 title for Switch devices */
+"Switch 2" = "Switch 2";
+
+/* Port 2 title for Switch devices
+   Port 3 title for ports and pad devices */
+"Switch 3" = "Switch 3";
+
+/* Port 4 title for ports and pad devices
+   Port 4 title for Switch devices */
+"Switch 4" = "Switch 4";
+
+/* Port 5 title for ports and pad devices
+   Port 5 title for Switch devices */
+"Switch 5" = "Switch 5";
+
+/* Port 6 title for ports and pad devices
+   Port 6 title for Switch devices */
+"Switch 6" = "Switch 6";
+
+/* Port 7 title for ports and pad devices
+   Port 7 title for Switch devices */
+"Switch 7" = "Switch 7";
+
+/* Port 8 title for ports and pad devices
+   Port 8 title for Switch devices */
+"Switch 8" = "Switch 8";
+
+/* SysReq/Attention key pressed */
+"SysReq/Attention" = "SysReq/Attention";
 
 /* T key pressed */
 "T" = "T";
@@ -426,18 +774,9 @@
 /* Invalid state peripheral error message */
 "The AirTurn is in an invalid state to perform this action" = "The AirTurn is in an invalid state to perform this action";
 
-/* Battery low peripheral update error message */
-"The battery is too low to perform an update. Replace or charge the battery and try again" = "The battery is too low to perform an update. Replace or charge the battery and try again";
-
-/* Config fetch error message */
-"The configuration could not be loaded from the server" = "The configuration could not be loaded from the server";
-
 /* Disconnected central error message
    Disconnected peripheral error message */
 "The device disconnected while performing the action" = "The device disconnected while performing the action";
-
-/* Disconnected peripheral update error message */
-"The device disconnected while the update was being performed. Reconnect and try again" = "The device disconnected while the update was being performed. Reconnect and try again";
 
 /* Not paired central error message
    Not paired peripheral error message */
@@ -447,12 +786,8 @@
    Not connected peripheral error message */
 "The device is not connected" = "The device is not connected";
 
-/* Not ready central error message
-   Not ready peripheral update error message */
+/* Not ready central error message */
 "The device is not ready" = "The device is not ready";
-
-/* Hash fail peripheral update error message */
-"The firmware was corrupted while being sent to your device. Don't worry! The update was cancelled. Your device will now restart, reconnect and then try again" = "The firmware was corrupted while being sent to your device. Don't worry! The update was cancelled. Your device will now restart, reconnect and then try again";
 
 /* Model not supported error message */
 "The model of device connected is not supported by this App. Try updating the App and reconnecting" = "The model of device connected is not supported by this App. Try updating the App and reconnecting";
@@ -460,11 +795,8 @@
 /* Operation cancelled peripheral error message */
 "The operation was cancelled" = "The operation was cancelled";
 
-/* Version not matching peripheral update error message */
-"The update failed: the version was not the version expected after OTA" = "The update failed: the version was not the version expected after OTA";
-
 /* Problem connecting error message */
-"There was a problem connecting to %@. This usually happens if you reset your AirTurn to delete the pairing without resetting the pairing in iOS, or have just updated the firmware. To delete the pairing, go in to iOS settings > Bluetooth > %1$@ (tap (i)) > Forget This Device, toggle Bluetooth off and on, then try connecting again in this App by tapping the alert icon next to the AirTurn and then 'Reconnect'" = "There was a problem connecting to %@. This usually happens if you reset your AirTurn to delete the pairing without resetting the pairing in iOS, or have just updated the firmware. To delete the pairing, go in to iOS settings > Bluetooth > %1$@ (tap (i)) > Forget This Device, toggle Bluetooth off and on, then try connecting again in this App by tapping the alert icon next to the AirTurn and then 'Reconnect'";
+"There was a problem connecting to %1$@. This usually happens if you reset your AirTurn to delete the pairing without resetting the pairing in iOS, or have just updated the firmware. To delete the pairing, go in to iOS settings > Bluetooth > %1$@ (tap (i)) > Forget This Device, toggle Bluetooth off and on, then try connecting again in this App by tapping the alert icon next to the AirTurn and then 'Reconnect'" = "There was a problem connecting to %1$@. This usually happens if you reset your AirTurn to delete the pairing without resetting the pairing in iOS, or have just updated the firmware. To delete the pairing, go in to iOS settings > Bluetooth > %1$@ (tap (i)) > Forget This Device, toggle Bluetooth off and on, then try connecting again in this App by tapping the alert icon next to the AirTurn and then 'Reconnect'";
 
 /* Unsupported feature peripheral error message */
 "This action is unsupported on this device" = "This action is unsupported on this device";
@@ -472,17 +804,14 @@
 /* AirTurn already bonded message */
 "This AirTurn is already paired to another device. Reset the AirTurn by holding power for 6s until it flashes to indicate it has reset, then try again" = "This AirTurn is already paired to another device. Reset the AirTurn by holding power for 6s until it flashes to indicate it has reset, then try again";
 
-/* Configuration restore error continue without restoring confirmation message */
-"This will delete your previous configuration and the configuration will be reset to factory defaults for this hardware. You will need to reconfigure the OEM if your product is not an AirTurn." = "This will delete your previous configuration and the configuration will be reset to factory defaults for this hardware. You will need to reconfigure the OEM if your product is not an AirTurn.";
-
 /* Connecting timed out peripheral error message */
 "Timed out" = "Timed out";
 
-/* Configuration restore error try again action */
-"Try again" = "Try again";
-
 /* U key pressed */
 "U" = "U";
+
+/* Undo key pressed */
+"Undo" = "Undo";
 
 /* Unexpected unresolvable central error message
    Unexpected unresolvable peripheral error message */
@@ -492,66 +821,35 @@
    Unhandled peripheral error message */
 "Unhandled error" = "Unhandled error";
 
-/* Unknown connection state
-   Unknown key pressed */
+/* Unknown key pressed */
 "Unknown" = "Unknown";
-
-/* Unknown peripheral update error message */
-"Unknown error" = "Unknown error";
 
 /* Unknown error title */
 "Unknown error!" = "Unknown error!";
 
+/* Port 1 title for directional pad devices */
+"Up" = "Up";
+
+/* Up Arrow key pressed */
+"Up Arrow" = "Up Arrow";
+
 /* Update available alert title */
 "Update available" = "Update available";
-
-/* Update error title */
-"Update error" = "Update error";
-
-/* Update not supported error title */
-"Update not supported" = "Update not supported";
 
 /* V key pressed */
 "V" = "V";
 
-/* JSON parse error value invalid */
-"Value invalid" = "Value invalid";
+/* Volume Down key pressed */
+"Volume Down" = "Volume Down";
 
-/* JSON parse error value not expected type */
-"Value not expected type" = "Value not expected type";
+/* Volume Up key pressed */
+"Volume Up" = "Volume Up";
 
 /* W key pressed */
 "W" = "W";
 
-/* Mode switch footer 'link' text */
-"Which mode should I use?" = "Which mode should I use?";
-
-/* Writing analog port configuration context */
-"writing analog configuration" = "writing analog configuration";
-
-/* Writing connection configuration context */
-"writing connection configuration" = "writing connection configuration";
-
-/* Writing debounce time context */
-"writing debounce time" = "writing debounce time";
-
-/* Writing delay before repeat context */
-"writing delay before repeat" = "writing delay before repeat";
-
-/* Writing idle power off context */
-"writing idle power off" = "writing idle power off";
-
-/* Writing OEM context */
-"writing OEM" = "writing OEM";
-
-/* Writing pairing method context */
-"writing pairing method" = "writing pairing method";
-
-/* Writing repeat rate context */
-"writing repeat rate" = "writing repeat rate";
-
-/* Writing port configuration context */
-"writing switch actions" = "writing switch actions";
+/* Non airdirect mode error message */
+"When an AirTurn is connected in modes 2+ you may experience problems with the on-screen keyboard. Switch to mode 1 to avoid these issues" = "When an AirTurn is connected in modes 2+ you may experience problems with the on-screen keyboard. Switch to mode 1 to avoid these issues";
 
 /* X key pressed */
 "X" = "X";
@@ -560,20 +858,8 @@
 "Y" = "Y";
 
 /* AirTurn max number of AirTurns message */
-"You can only connect %d AirTurn(s) at once. To connect to this AirTurn, forget another AirTurn first" = "You can only connect %d AirTurn(s) at once. To connect to this AirTurn, forget another AirTurn first";
+"You can only connect %lu AirTurn(s) at once. To connect to this AirTurn, forget another AirTurn first" = "You can only connect %lu AirTurn(s) at once. To connect to this AirTurn, forget another AirTurn first";
 
 /* Z key pressed */
 "Z" = "Z";
-
-/* Left Arrow key pressed */
-"←" = "←";
-
-/* Up Arrow key pressed */
-"↑" = "↑";
-
-/* Right Arrow key pressed */
-"→" = "→";
-
-/* Down Arrow key pressed */
-"↓" = "↓";
 

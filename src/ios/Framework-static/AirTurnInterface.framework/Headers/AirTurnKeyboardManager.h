@@ -14,7 +14,7 @@
 /**
  Posted after the Keyboard Manager is initialised on App launch
  */
-AIRTURN_EXTERN NSString * _Nonnull AirTurnKeyboardManagerReadyNotification;
+AIRTURN_NOTIFICATION AirTurnKeyboardManagerReadyNotification;
 
 /**
  The keyboard manager class provides manual control over keyboard show/hide using only the public iOS SDK
@@ -22,14 +22,19 @@ AIRTURN_EXTERN NSString * _Nonnull AirTurnKeyboardManagerReadyNotification;
 @interface AirTurnKeyboardManager : NSObject
 
 /**
- The frame of the keyboard in the `UIWindow`
+ The frame of the keyboard including the assistant view
  */
 @property(nonatomic, readonly) CGRect keyboardFrame;
 
 /**
- The frame containing the keyboard and dismiss bar
+ The frame of the keyboard including the assistant view and accessory view
  */
-@property(nonatomic, readonly) CGRect keyboardFrameIncludingBar;
+@property(nonatomic, readonly) CGRect keyboardFrameIncludingAssistantAccessory;
+
+/**
+ The frame of the keyboard including the assistant view, accessory view, and dismiss bar
+ */
+@property(nonatomic, readonly) CGRect keyboardFrameIncludingAssistantAccessoryDismissBar;
 
 /**
  Determines if virtual keyboard is managed automatically. Default is `YES` if `automaticKeyboardManagementAvailable` is YES. If `automaticKeyboardManagementAvailable` is `NO`, this property cannot be set to `YES`.
