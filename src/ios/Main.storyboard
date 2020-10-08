@@ -501,7 +501,7 @@
         <!--Navigation Controller-->
         <scene sceneID="N0A-lJ-vF8">
             <objects>
-                <navigationController id="lMh-TL-jFE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingNav" id="lMh-TL-jFE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eqw-YN-S2a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
