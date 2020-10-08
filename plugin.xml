@@ -28,7 +28,7 @@
     </config-file>
 
     <header-file src="src/ios/AirTurn.h" />
-    <header-file src="src/iosAirTurnUI/AirTurnUI.h" />
+    <header-file src="src/ios/AirTurnUI/AirTurnUI.h" />
     <header-file src="src/ios/AirTurnUI/AirTurnUIConnectionController.h" />
     <header-file src="src/ios/CocoaLumberjack/Benchmarking/BaseNSLogging.h" />
     <header-file src="src/ios/CocoaLumberjack/Benchmarking/DynamicLogging.h" />
