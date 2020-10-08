@@ -191,19 +191,9 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnInvalidatedNotification;
 /// ---------------------------------
 
 /**
- A notification indicating a value has been written successfully to the peripheral. The `userInfo` dictionary contains all standard keys and the key `AirTurnWriteTypeKey` contains a `NSNumber` object containing an integer which is one of the `AirTurnPeripheralWriteType` values. The posting object is the `AirTurnPeripheral`.
- */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnWriteCompleteNotification;
-
-/**
  A notification indicating the current mode of the peripheral has changed. The `userInfo` dictionary contains all standard keys. The posting object is the `AirTurnPeripheral`.
  */
 AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidUpdateCurrentModeNotification;
-
-/**
- The notification `userInfo` key for the type of value just written on write complete notification. The value is an `NSNumber` object containing an integer which is one of the `AirTurnPeripheralWriteType` values.
- */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnWriteTypeKey;
 
 /**
  A notification indicating the name of the peripheral has changed. The `userInfo` dictionary contains all standard keys. The posting object is the `AirTurnPeripheral`.
@@ -326,13 +316,12 @@ typedef NS_ENUM(NSUInteger, AirTurnMode) {
     /**
      The maximum mode value
      */
-    AirTurnModeMaximum = AirTurnMode8
+    AirTurnModeMaximum = AirTurnMode8,
+	/**
+	 Defines the number of modes available
+	 */
+	AirTurnModeMaxNumberOfModes = AirTurnModeMaximum - AirTurnModeMinimum + 1
 };
-
-/**
- Defines the number of modes available, equal to `AirTurnModeMaximum - AirTurnModeMinimum + 1`
- */
-extern const NSUInteger AirTurnModeMaxNumberOfModes;
 
 /**
  Constants defining the AirTurn port numbers
@@ -381,13 +370,12 @@ typedef NS_ENUM(NSInteger, AirTurnPort) {
     /**
      The maximum port number
      */
-    AirTurnPortMaximum = AirTurnPort8
+    AirTurnPortMaximum = AirTurnPort8,
+	/**
+	 Defines the number of ports available
+	 */
+	AirTurnPortMaxNumberOfPorts = AirTurnPortMaximum - AirTurnPortMinimum + 1
 };
-
-/**
- Defines the number of ports available, equal to `AirTurnPortMaximum - AirTurnPortMinimum + 1`
- */
-extern const NSUInteger AirTurnPortMaxNumberOfPorts;
 
 /**
  Constants defining the AirTurn port states
@@ -430,7 +418,7 @@ typedef NS_ENUM(NSInteger, AirTurnDeviceType) {
     /**
      AirTurn virtual PED device type
      */
-    AirTurnDeviceTypevPED,
+    AirTurnDeviceTypeVirtualAirTurn,
     /**
      AirTurn PED device type
      */
@@ -455,6 +443,26 @@ typedef NS_ENUM(NSInteger, AirTurnDeviceType) {
      AirTurn BT200S-6 device type
      */
     AirTurnDeviceTypeBT200S_6,
+    /**
+     AirTurn QUAD200 device type
+     */
+    AirTurnDeviceTypeQUAD200,
+    /**
+     AirTurn BT500 device type
+     */
+    AirTurnDeviceTypeBT500,
+    /**
+     AirTurn BT500S-2 device type
+     */
+    AirTurnDeviceTypeBT500S_2,
+    /**
+     AirTurn BT500S-4 device type
+     */
+    AirTurnDeviceTypeBT500S_4,
+    /**
+     AirTurn BT500S-6 device type
+     */
+    AirTurnDeviceTypeBT500S_6,
 };
 
 /**
@@ -468,7 +476,11 @@ typedef NS_ENUM(NSUInteger, AirTurnInputType) {
 	/**
 	 AirTurn has 'pedal' inputs. Examples include PEDpro.
 	 */
-	AirTurnInputTypePedal,
+	AirTurnInputTypeDualPedal,
+    /**
+     AirTurn has 'pedal' inputs. Examples include QUAD200.
+     */
+    AirTurnInputTypeManyPedal,
 	/**
 	 AirTurn has 'switch' inputs. Examples include BT200S-2
 	 */
@@ -556,50 +568,6 @@ typedef NS_OPTIONS(uint16_t, AirTurnModeFeatures) {
 };
 
 /**
- Defines which value has been written
- */
-typedef NS_ENUM(NSInteger, AirTurnPeripheralWriteType) {
-    /**
-     The delay before repeat value has been written
-     */
-    AirTurnPeripheralWriteTypeDelayBeforeRepeat = 1,
-    /**
-     The repeat rate has been written
-     */
-    AirTurnPeripheralWriteTypeRepeatRate,
-    /**
-     The idle power off has been written
-     */
-    AirTurnPeripheralWriteTypeIdlePowerOff,
-    /**
-     The connection configuration has been written
-     */
-    AirTurnPeripheralWriteTypeConnectionConfiguration,
-    /**
-     The pairing method has been written
-     */
-    AirTurnPeripheralWriteTypePairingMethod,
-	/**
-	 The debounce time has been written
-	 */
-	AirTurnPeripheralWriteTypeDebounceTime,
-};
-
-/**
- Defines the Connection Configuration options
- */
-typedef NS_ENUM(uint8_t, AirTurnPeripheralConnectionConfiguration){
-    /**
-     The connection will be optimised for power saving. Default.
-     */
-    AirTurnPeripheralConnectionConfigurationLowPower = 0,
-    /**
-     The connection will be optimised for responsiveness
-     */
-    AirTurnPeripheralConnectionConfigurationLowLatency = 1
-};
-
-/**
  Defines the charging states
  */
 typedef NS_ENUM(uint8_t, AirTurnPeripheralChargingState) {
@@ -623,40 +591,6 @@ typedef NS_ENUM(uint8_t, AirTurnPeripheralChargingState) {
      The device is connected to external power and a fault occurred during charging
      */
     AirTurnPeripheralChargingStateConnectedFault
-};
-
-/**
- Defines the features that are available on a peripheral above the base features
- */
-typedef NS_OPTIONS(NSUInteger, AirTurnPeripheralFeaturesAvailable){
-    /**
-     Indicates connection speed configuration is available
-     */
-    AirTurnPeripheralFeaturesAvailableConnectionSpeedConfiguration = 1 << 0,
-    /**
-     Indicates OS key repeat configuration is available
-     */
-    AirTurnPeripheralFeaturesAvailableOSKeyRepeatConfiguration = 1 << 1,
-    /**
-     Indicates port configuration is available
-     */
-    AirTurnPeripheralFeaturesAvailablePortConfig = 1 << 2,
-    /**
-     Indicates analog is available
-     */
-    AirTurnPeripheralFeaturesAvailableAnalog = 1 << 3,
-    /**
-     Indicates pairing method configuration is available
-     */
-    AirTurnPeripheralFeaturesAvailablePairingMethod = 1 << 4,
-	/**
-	 Indicates extended port configuration is available
-	 */
-	AirTurnPeripheralFeaturesAvailableExtendedPortConfig = 1 << 5,
-	/**
-	 Indicates debounce time configuration is available
-	 */
-	AirTurnPeripheralFeaturesAvailableDebounceTime = 1 << 6,
 };
 
 /**
@@ -712,74 +646,19 @@ typedef NS_ENUM(uint8_t, AirTurnPeripheralPairingState) {
 };
 
 /**
- The pairing method the AirTurn is in
- */
-typedef NS_ENUM(uint8_t, AirTurnPeripheralPairingMethod) {
-    /**
-     If the AirTurn is in 'Open method' it will not require pairing in mode 1, but will require it in other modes. It can pair with up to 8 devices, after which it will delete the pairing which has not been used for the longest period of time.
-     */
-    AirTurnPeripheralPairingMethodOpen,
-    /**
-     If the AirTurn is in 'Closed method' it will only pair with one device. Pairing is required in all modes.
-     */
-    AirTurnPeripheralPairingMethodClosed
-};
-
-/**
- A type for debounce time durations
- */
-typedef uint16_t AirTurnPeripheralDebounceTime;
-
-/**
  A type for analog values
  */
-typedef int16_t AirTurnPeripheralAnalogValue;
+typedef int16_t AirTurnPortValue;
 
 /**
  The maximum possible analog value
  */
-extern const AirTurnPeripheralAnalogValue AirTurnPeripheralAnalogValueMax;
+extern const AirTurnPortValue AirTurnPortValueMax;
 /**
  The minimum possible analog value
  */
-extern const AirTurnPeripheralAnalogValue AirTurnPeripheralAnalogValueMin;
+extern const AirTurnPortValue AirTurnPortValueMin;
 
-/**
- Defines the max delay before repeat in seconds
- */
-extern const uint8_t AirTurnPeripheralMaxDelayBeforeRepeatSeconds;
-/**
- Defines the suggested default delay before repeat divisor value, for when delay before repeat is to be set non-zero but is currently zero
- */
-extern const uint8_t AirTurnPeripheralDefaultDelayBeforeRepeat;
-/**
- Defines the max repeat rate in seconds
- */
-extern const uint8_t AirTurnPeripheralMaxRepeatRateSeconds;
-/**
- Defines the suggested default repeat rate divisor value, for when repeat rate is to be set non-zero but is currently zero
- */
-extern const uint8_t AirTurnPeripheralDefaultKeyRepeatRate;
-/**
- Defines the suggested default key repeat enabled value
- */
-extern const BOOL AirTurnPeripheralDefaultKeyRepeatEnabled;
-/**
- Defines the suggested default OS key repeat enabled value
- */
-extern const BOOL AirTurnPeripheralDefaultOSKeyRepeatEnabled;
-/**
- Defines the suggested default idle power off value in seconds
- */
-extern const uint16_t AirTurnPeripheralDefaultIdlePowerOff;
-/**
- Defines the suggested default connection configuration value
- */
-extern const AirTurnPeripheralConnectionConfiguration AirTurnPeripheralDefaultConnectionConfiguration;
-/**
- Defines the maximum name length
- */
-extern const NSUInteger AirTurnPeripheralMaxDeviceNameLength;
 /**
  Defines the low battery level cut off
  */

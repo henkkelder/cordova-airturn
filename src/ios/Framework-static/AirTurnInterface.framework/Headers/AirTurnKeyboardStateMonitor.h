@@ -48,18 +48,14 @@ typedef NS_ENUM(NSUInteger, AirTurnVirtualKeyboardNormalState){
      The virtual keyboard is hidden
      */
     AirTurnVirtualKeyboardNormalStateHidden,
+	/**
+	 The keyboard toolbar is visible
+	 */
+	AirTurnVirtualKeyboardNormalStateToolbarVisible,
     /**
-     The virtual keyboard is animating on screen
+     The virtual keyboard and toolbar is visible
      */
-    AirTurnVirtualKeyboardNormalStateAnimatingToVisible,
-    /**
-     The virtual keyboard is visible
-     */
-    AirTurnVirtualKeyboardNormalStateVisible,
-    /**
-     The virtual keyboard is animating off screen
-     */
-    AirTurnVirtualKeyboardNormalStateAnimatingToHidden
+    AirTurnVirtualKeyboardNormalStateFullyVisible
 };
 
 /**
@@ -100,6 +96,16 @@ typedef NS_ENUM(NSUInteger, AirTurnFirstResponderOwner) {
  Determines the normal virtual keyboard state
  */
 @property(nonatomic, readonly) AirTurnVirtualKeyboardNormalState normalVirtualKeyboardState;
+
+/**
+ Normal virtual keyboard is animating
+ */
+@property(nonatomic, readonly) BOOL normalVirtualKeyboardIsAnimating;
+
+/**
+ The normal virtual keyboard animating from state
+ */
+@property(nonatomic, readonly) AirTurnVirtualKeyboardNormalState normalVirtualKeyboardAnimatingFromState;
 
 /**
  Determines who owns the first responder – no first responder, local App or remote App (split screen)

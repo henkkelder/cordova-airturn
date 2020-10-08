@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/AirTurnError.h</key>
 		<data>
-		bEYoi94PEnzmWMhAKvFl/UDF9YQ=
+		7A9EGVELI3B1OVI9vWwZSqQVNQc=
 		</data>
 		<key>Headers/AirTurnInfoViewController.h</key>
 		<data>
@@ -42,11 +42,11 @@
 		</data>
 		<key>Headers/AirTurnKeyboardStateMonitor.h</key>
 		<data>
-		Sa7VDKWJRsCGO52qO6qinrB/5JY=
+		rSkDiUAs64Iw5JT/Fj2KEj2aq1k=
 		</data>
 		<key>Headers/AirTurnLogging.h</key>
 		<data>
-		mOFqg9f+G9VXGtzS8O6xVjuCiZU=
+		ssR26WhFryP4xrHx9qWRgwWg/m8=
 		</data>
 		<key>Headers/AirTurnManager.h</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Headers/AirTurnPeripheral.h</key>
 		<data>
-		VgbBgue8BF6jrgEoWmwRmQfxsEg=
+		O6w0CQL35341hK3qZBLvTrr6+68=
 		</data>
 		<key>Headers/AirTurnTypes.h</key>
 		<data>
-		xpYW4/82AI4Y8iOOFRJkZutGrWo=
+		F5Ft35sfWp6Tih7O+2N0KQiwFkM=
 		</data>
 		<key>Headers/AirTurnView.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qc/L2DXdSoAESvQqC5YVu9JfWTg=
+		Aif3U3wVjY0FpLI5Oimzghu0nRk=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -116,11 +116,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bEYoi94PEnzmWMhAKvFl/UDF9YQ=
+			7A9EGVELI3B1OVI9vWwZSqQVNQc=
 			</data>
 			<key>hash2</key>
 			<data>
-			7uUBWwa1eRm4LF/F2E7xcXUKIBX1UanfBrhsJLkErfk=
+			+WQ8+DJ6109Isa0DT9TLS9NNmg8cOd+ZSRA4CPpRBdY=
 			</data>
 		</dict>
 		<key>Headers/AirTurnInfoViewController.h</key>
@@ -182,22 +182,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Sa7VDKWJRsCGO52qO6qinrB/5JY=
+			rSkDiUAs64Iw5JT/Fj2KEj2aq1k=
 			</data>
 			<key>hash2</key>
 			<data>
-			TzyI6Hid9EHsKKt+Z0pJ61DJX6rZYY2b/Ae5cDBsCcY=
+			bdwedMVUi7Lc3AFWZ13smA4XpyKE2Eg3rJPTket6F/M=
 			</data>
 		</dict>
 		<key>Headers/AirTurnLogging.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mOFqg9f+G9VXGtzS8O6xVjuCiZU=
+			ssR26WhFryP4xrHx9qWRgwWg/m8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Anicito8m0E3gYXLmuXKZdLuLV0keVTVig/RUIwEONc=
+			ROj+FjcR2yRYK9YB6Y/V7TfYxcTM3nRmQCgcWoL4N5U=
 			</data>
 		</dict>
 		<key>Headers/AirTurnManager.h</key>
@@ -215,22 +215,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VgbBgue8BF6jrgEoWmwRmQfxsEg=
+			O6w0CQL35341hK3qZBLvTrr6+68=
 			</data>
 			<key>hash2</key>
 			<data>
-			5Ip526NNpWYZQ2bqt8bD4Q518twVnOfKLAaZLXoc2GQ=
+			omSGMLPvYIIvpdfA4gt8072PC3OfJL4sdFaStgHKkdY=
 			</data>
 		</dict>
 		<key>Headers/AirTurnTypes.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xpYW4/82AI4Y8iOOFRJkZutGrWo=
+			F5Ft35sfWp6Tih7O+2N0KQiwFkM=
 			</data>
 			<key>hash2</key>
 			<data>
-			TotZfOUxWcG7q+nxrC9aOzWL0IKefd7L+2jC5LObLgc=
+			keaiceX86hEu/VY6eitvz/RGApj23fPgGyGVCrBm4V0=
 			</data>
 		</dict>
 		<key>Headers/AirTurnView.h</key>
