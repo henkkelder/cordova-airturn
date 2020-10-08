@@ -11,7 +11,7 @@
 #import <Cordova/CDVAvailability.h>
 #import "AirTurn.h"
 #import "CocoaLumberjack.h"
-#import "AirTurnUIConnectionController.h"
+#import "AirTurnUI.h"
 
 #if AirTurnPlayPauseiPod
 @import MediaPlayer;
