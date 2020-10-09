@@ -27,6 +27,7 @@
 - (void)killApp:(CDVInvokedUrlCommand*)command;
 - (void)isConnected:(CDVInvokedUrlCommand*)command;
 - (void)getInfo:(CDVInvokedUrlCommand*)command;
+- (void)makeActive:(CDVInvokedUrlCommand*)command
 
 - (void)addEventListener:(CDVInvokedUrlCommand*)command;
 - (void)removeEventListener:(CDVInvokedUrlCommand*)command;
