@@ -182,9 +182,9 @@ static inline void throwWithName( NSError *error, NSString* name )
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (BOOL)shouldRecaptureFromFirstResponder:(UIResponder *_Nullable *) currentFirstResponder {
-    return NO;
-}
+//- (BOOL)shouldRecaptureFromFirstResponder:(UIResponder *_Nullable *) currentFirstResponder {
+//  return NO;
+// }
 
 - (void)initAirTurn:(CDVInvokedUrlCommand*)command
 {
@@ -200,7 +200,9 @@ static inline void throwWithName( NSError *error, NSString* name )
     // [AirTurnManager sharedManager];
     AirTurnViewManager* vManager = [[AirTurnManager sharedManager] viewManager];
 
-    vManager. shouldRecaptureFromFirstResponder = shouldRecaptureFromFirstResponder
+    vManager. shouldRecaptureFromFirstResponder = ^(UIResponder *_Nullable *) currentFirstResponder) {
+        return NO;
+    };
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
