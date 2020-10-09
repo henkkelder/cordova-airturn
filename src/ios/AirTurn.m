@@ -182,10 +182,6 @@ static inline void throwWithName( NSError *error, NSString* name )
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-//- (BOOL)shouldRecaptureFromFirstResponder:(UIResponder *_Nullable *) currentFirstResponder {
-//  return NO;
-// }
-
 - (void)initAirTurn:(CDVInvokedUrlCommand*)command
 {
     NSLog(@"pluginInitialize");
@@ -198,12 +194,9 @@ static inline void throwWithName( NSError *error, NSString* name )
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
 
     [AirTurnManager sharedManager];
-//    AirTurnViewManager* vManager = [[AirTurnManager sharedManager] viewManager];
-//    vManager.shouldRecaptureFromFirstResponder = ^(UIResponder *_Nullable responder) {
-//        return NO;
-//    };
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
@@ -228,6 +221,7 @@ static inline void throwWithName( NSError *error, NSString* name )
     connected = [AirTurnManager sharedManager].isConnected;
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:connected];
+
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
