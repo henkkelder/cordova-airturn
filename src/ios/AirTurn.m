@@ -193,11 +193,17 @@ static inline void throwWithName( NSError *error, NSString* name )
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
 
-    [AirTurnManager sharedManager];
+    // [AirTurnManager sharedManager];
+    AirTurnViewManager* vManager = [[AirTurnManager sharedManager] viewManager];
+
+    vManager. shouldRecaptureFromFirstResponder = shouldRecaptureFromFirstResponder
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (BOOL)shouldRecaptureFromFirstResponder:(UIResponder *_Nullable *) currentFirstResponder {
+    return NO;
 }
 
 - (void)makeActive:(CDVInvokedUrlCommand*)command
@@ -215,16 +221,12 @@ static inline void throwWithName( NSError *error, NSString* name )
 }
 
 
-
 - (void)isConnected:(CDVInvokedUrlCommand*)command
 {
     BOOL connected = FALSE;
-
-    // HKE october 2020: isConnected is deprecated
-    // connected = [AirTurnManager sharedManager].isConnected;
+    connected = [AirTurnManager sharedManager].isConnected;
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:connected];
-
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
