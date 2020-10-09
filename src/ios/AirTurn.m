@@ -200,7 +200,7 @@ static inline void throwWithName( NSError *error, NSString* name )
     // [AirTurnManager sharedManager];
     AirTurnViewManager* vManager = [[AirTurnManager sharedManager] viewManager];
 
-    vManager. shouldRecaptureFromFirstResponder = ^(UIResponder *_Nullable *) currentFirstResponder) {
+    vManager.shouldRecaptureFromFirstResponder = ^(UIResponder *_Nullable) currentFirstResponder) {
         return NO;
     };
 
