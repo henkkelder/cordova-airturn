@@ -182,6 +182,10 @@ static inline void throwWithName( NSError *error, NSString* name )
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (BOOL)shouldRecaptureFromFirstResponder:(UIResponder *_Nullable *) currentFirstResponder {
+    return NO;
+}
+
 - (void)initAirTurn:(CDVInvokedUrlCommand*)command
 {
     NSLog(@"pluginInitialize");
@@ -200,10 +204,6 @@ static inline void throwWithName( NSError *error, NSString* name )
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-- (BOOL)shouldRecaptureFromFirstResponder:(UIResponder *_Nullable *) currentFirstResponder {
-    return NO;
 }
 
 - (void)makeActive:(CDVInvokedUrlCommand*)command
