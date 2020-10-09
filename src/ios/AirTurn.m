@@ -215,10 +215,13 @@ static inline void throwWithName( NSError *error, NSString* name )
 }
 
 
+
 - (void)isConnected:(CDVInvokedUrlCommand*)command
 {
     BOOL connected = FALSE;
-    connected = [AirTurnManager sharedManager].isConnected;
+
+    // HKE october 2020: isConnected is deprecated
+    // connected = [AirTurnManager sharedManager].isConnected;
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:connected];
 
