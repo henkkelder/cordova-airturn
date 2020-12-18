@@ -11,7 +11,7 @@
 /**
  AirTurn Log Flags
  */
-typedef NS_OPTIONS(NSUInteger, AirTurnLogFlag){
+typedef NS_OPTIONS(NSInteger, AirTurnLogFlag){
     /**
      Error log flag
      */
@@ -37,7 +37,7 @@ typedef NS_OPTIONS(NSUInteger, AirTurnLogFlag){
 /**
  AirTurn Log level masks
  */
-typedef NS_ENUM(NSUInteger, AirTurnLogLevel){
+typedef NS_ENUM(NSInteger, AirTurnLogLevel){
     /**
      No logging
      */
@@ -65,7 +65,7 @@ typedef NS_ENUM(NSUInteger, AirTurnLogLevel){
     /**
      All logging
      */
-    AirTurnLogLevelAll       = NSUIntegerMax
+    AirTurnLogLevelAll       = AirTurnLogLevelVerbose
 };
 
 @protocol AirTurnLoggingDelegate;

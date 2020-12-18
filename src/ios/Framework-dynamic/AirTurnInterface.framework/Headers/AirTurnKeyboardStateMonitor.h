@@ -7,43 +7,47 @@
 //
 
 #import <UIKit/UIKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import <AirTurnInterface/AirTurnLogging.h>
+#import <AirTurnInterface/AirTurnTypes.h>
 
 /**
  Indicates the keyboard state monitor is ready
  */
-extern NSString *AirTurnKeyboardStateMonitorReadyNotification;
+AIRTURN_NOTIFICATION AirTurnKeyboardStateMonitorReadyNotification;
 /**
  Indicates the first responder has changed
  */
-extern NSString *AirTurnKeyboardStateMonitorFirstResponderChangedNotification;
+AIRTURN_NOTIFICATION AirTurnKeyboardStateMonitorFirstResponderChangedNotification;
 
 /**
  Indicates the first responder owner has changed
  */
-extern NSString *AirTurnKeyboardStateMonitorFirstResponderOwnerChangedNotification;
+AIRTURN_NOTIFICATION AirTurnKeyboardStateMonitorFirstResponderOwnerChangedNotification;
 
 /**
  External keyboard connection status changed. Notifications do not occur if automatic keyboard management is disabled
  */
-extern NSString *AirTurnKeyboardStateMonitorExternalKeyboardStateChangedNotification;
+AIRTURN_NOTIFICATION AirTurnKeyboardStateMonitorExternalKeyboardStateChangedNotification;
 
 /**
  Virtual keyboard state changed. Notifications do not occur if automatic keyboard management is disabled
  */
-extern NSString *AirTurnKeyboardStateMonitorVirtualKeyboardShouldBeShownChangedNotification;
+AIRTURN_NOTIFICATION AirTurnKeyboardStateMonitorVirtualKeyboardShouldBeShownChangedNotification;
+
+/**
+A type for all AirTurnKeyboardState notification user info keys
+*/
+typedef AirTurnNotificationUserInfoKey AirTurnKeyboardStateNotificationUserInfoKey NS_TYPED_ENUM;
+#define AIRTURN_KEYBOARD_STATE_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnKeyboardStateNotificationUserInfoKey)
 /**
  The userinfo key for the direction the keyboard is going. The value is an NSNumber. 1 indicates the keyboard is coming on screen. -1 indicates the keyboard is going off screen.
  */
-extern NSString *AirTurnKeyboardStateMonitorVirtualKeyboardDirectionKey;
-
-NS_ASSUME_NONNULL_END
+AIRTURN_KEYBOARD_STATE_NOTIFICATION_KEY AirTurnKeyboardStateMonitorVirtualKeyboardDirectionKey;
 
 /**
  Determines the normal state of the virtual keyboard (i.e. the state the virtual keyboard is in as controlled by the OS)
  */
-typedef NS_ENUM(NSUInteger, AirTurnVirtualKeyboardNormalState){
+typedef NS_ENUM(NSInteger, AirTurnVirtualKeyboardNormalState){
     /**
      The virtual keyboard is hidden
      */
@@ -61,7 +65,7 @@ typedef NS_ENUM(NSUInteger, AirTurnVirtualKeyboardNormalState){
 /**
  The first responder owner
  */
-typedef NS_ENUM(NSUInteger, AirTurnFirstResponderOwner) {
+typedef NS_ENUM(NSInteger, AirTurnFirstResponderOwner) {
     /**
      There is no first responder
      */
@@ -91,6 +95,11 @@ typedef NS_ENUM(NSUInteger, AirTurnFirstResponderOwner) {
  The current first responder
  */
 @property(nonatomic, readonly, weak, nullable) UIResponder *firstResponder;
+
+/**
+ The previous first responder before AirTurnView recaptured first responder status
+ */
+@property(nonatomic, readonly, weak, nullable) UIResponder *firstResponderBeforeRecapture;
 
 /**
  Determines the normal virtual keyboard state
@@ -142,17 +151,11 @@ typedef NS_ENUM(NSUInteger, AirTurnFirstResponderOwner) {
 + (nullable AirTurnKeyboardStateMonitor *)sharedMonitor;
 
 /**
- Reassess the external keyboard state after a period with no first responder
- 
- @param completion Completion block
- */
-- (void)reassessKeyboardState:(nonnull void (^)(void))completion;
-
-/**
  Add a block to be called when the external keyboard state has been reassessed
 
+ @param reason A human readable reason for performing keyboard state reassessment
  @param completion Completion block
  */
-- (void)addKeyboardStateReassessmentCompletionBlock:(nonnull void (^)(void))completion;
+- (void)reassessKeyboardStateReason:(nonnull NSString *)reason completion:(nonnull void (^)(void))completion;
 
 @end

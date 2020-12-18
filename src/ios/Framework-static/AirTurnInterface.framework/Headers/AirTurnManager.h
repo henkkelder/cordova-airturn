@@ -10,6 +10,8 @@
 #import <AirTurnInterface/AirTurnCentral.h>
 #import <AirTurnInterface/AirTurnViewManager.h>
 #import <AirTurnInterface/ARCHelper.h>
+#import <AirTurnInterface/AirTurnTypes.h>
+#import <AirTurnInterface/AirTurnCoalesced.h>
 
 /**
  The overall HID + BTLE manager for AirTurn
@@ -17,12 +19,22 @@
 @interface AirTurnManager : NSObject
 
 /**
- `YES` if an AirTurn is connected
+ A coalesced representation of all connected AirTurns
  */
-@property(nonatomic, readonly) BOOL isConnected;
+@property(nonatomic, readonly, nonnull) AirTurnCoalesced *coalescedAirTurn;
 
 /**
- The BTLE central
+ The version of AirTurnInterface SDK
+ */
+@property(nonatomic, readonly, nonnull) NSString *version;
+
+/**
+ `YES` if an AirTurn is connected
+ */
+@property(nonatomic, readonly) BOOL isConnected __attribute__((deprecated("Use the coalesced AirTurn instead", "coalescedAirTurn.isConnected")));
+
+/**
+ The AirTurn AirDirect central
  */
 @property(ah_weak_delegate, nonatomic, readonly, nullable) AirTurnCentral *central;
 
@@ -37,5 +49,20 @@
  @return The shared `AirTurnManager` object
  */
 + (nonnull AirTurnManager *)sharedManager;
+
+/**
+ A set of digital app actions which are available to be assigned to AirTurn inputs
+ */
+@property(nonatomic, strong, nullable) NSSet<AirTurnAppAction> *digitalAppActions;
+
+/**
+ A dictionary of `AirTurnPort` to app action identifier mappings to use as the default for new devices
+ */
+@property(nonatomic, strong, nullable) NSDictionary<NSNumber *, AirTurnAppAction> *digitalAppActionDefaultMapping;
+
+/**
+ A set of analog app actions which are available to be assigned to AirTurn inputs
+ */
+@property(nonatomic, strong, nullable) NSSet<AirTurnAppAction> *analogAppActions;
 
 @end

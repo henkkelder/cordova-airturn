@@ -16,6 +16,7 @@
 #import <AirTurnInterface/AirTurnKeyboardDismissBarManager.h>
 #import <AirTurnInterface/AirTurnKeyboardManager.h>
 #import <AirTurnInterface/AirTurnKeyboardStateMonitor.h>
+#import <AirTurnInterface/AirTurnCoalesced.h>
 #import <AirTurnInterface/AirTurnManager.h>
 #import <AirTurnInterface/AirTurnViewManager.h>
 #import <AirTurnInterface/AirTurnView.h>

@@ -10,12 +10,18 @@
 #import <AirTurnInterface/AirTurnTypes.h>
 #import <AirTurnInterface/AirTurnError.h>
 #import <AirTurnInterface/ARCHelper.h>
+#import <AirTurnInterface/AirTurnDeviceProtocol.h>
 #import <AirTurnInterface/EDSemver.h>
 
 /**
  Represents one AirTurn peripheral
  */
-@interface AirTurnPeripheral : NSObject
+@interface AirTurnPeripheral : NSObject <AirTurnDeviceProtocol>
+
+/**
+ A peripheral that coalesces all connected peripherals
+ */
+@property(class, nonatomic, readonly, nonnull) AirTurnPeripheral *coalesced;
 
 #pragma mark Peripheral State
 
@@ -99,22 +105,22 @@
 /**
  The number of modes on this AirTurn
  */
-@property(nonatomic, readonly) uint8_t numberOfModes;
+@property(nonatomic, readonly) NSInteger numberOfModes;
 
 /**
  The number of digital ports available on this AirTurn
  */
-@property(nonatomic, readonly) uint8_t numberOfDigitalPortsAvailable;
+@property(nonatomic, readonly) NSInteger numberOfDigitalPortsAvailable;
 
 /**
  The number of analog ports available on this AirTurn
  */
-@property(nonatomic, readonly) uint8_t numberOfAnalogPortsAvailable;
+@property(nonatomic, readonly) NSInteger numberOfAnalogPortsAvailable;
 
 /**
  The peripheral battery level, a percentage 0-100%
  */
-@property(nonatomic, readonly) uint8_t batteryLevel;
+@property(nonatomic, readonly) NSInteger batteryLevel;
 
 /**
  The peripheral charging state

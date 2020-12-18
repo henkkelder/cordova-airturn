@@ -27,6 +27,16 @@
 #import <AirTurnInterface/AirTurnDefines.h>
 #import <AirTurnInterface/AirTurnKeyCodes.h>
 
+#define AIRTURN_STRING_CONST(type) AIRTURN_EXTERN type _Nonnull const
+
+#define AIRTURN_NOTIFICATION AIRTURN_STRING_CONST(NSNotificationName)
+
+/**
+A type for all AirTurn notification user info keys
+*/
+typedef NSString * AirTurnNotificationUserInfoKey NS_TYPED_EXTENSIBLE_ENUM;
+#define AIRTURN_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnNotificationUserInfoKey)
+
 /// ---------------------------------
 /// @name Standard userInfo keys
 /// ---------------------------------
@@ -34,59 +44,94 @@
 /**
  The notification `userInfo` key for the peripheral that the notification is concerning. The value is an `AirTurnPeripheral` object. Only present on BTLE device notifications.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnPeripheralKey;
+AIRTURN_NOTIFICATION_KEY AirTurnPeripheralKey;
 
 /**
  The notification `userInfo` key for the AirTurn identifier. The value is a `NSString` object. Only present on BTLE device notifications.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnIDKey;
+AIRTURN_NOTIFICATION_KEY AirTurnIDKey;
 
 /**
  The notification `userInfo` key for the device type on connection notification. The value is an `NSNumber` object containing an integer which is one of the `AirTurnDeviceType` enum values.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDeviceTypeKey;
+AIRTURN_NOTIFICATION_KEY AirTurnDeviceTypeKey;
 
 /**
  The notification `userInfo` key indicating if the device is an AirDirect device or not. The value is an `NSNumber` object containing a boolean value, YES if an AirTurnDirect device.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnConnectionModeAirDirectKey;
+AIRTURN_NOTIFICATION_KEY AirTurnConnectionModeAirDirectKey;
+
+/**
+ The notification `userInfo` key for an error. The value is an `NSError` object.
+ */
+AIRTURN_NOTIFICATION_KEY AirTurnErrorKey;
 
 /// ---------------------------------
 /// @name Pedal State Notifications
 /// ---------------------------------
 
 /**
- A notification indicating which pedal was pressed. A press occurs on pedal down, then at the key repeat rate after intial repeat delay. The `userInfo` dictionary contains all standard keys and the key `AirTurnPortNumberKey` contains the port of the pedal that was pressed and `AirTurnPortStateKey` contains the state of the pedal, which will be `AirTurnPortStateDown`. For HID devices, `AirTurnKeyCodeKey` contains the key code. For PED devices, `AirTurnPedalRepeatCount` contains the number of key repeats.
+ A notification indicating which pedal was pressed. A press occurs on pedal down, then at the key repeat rate after intial repeat delay. The `userInfo` dictionary contains all standard keys and the key `AirTurnPortNumberKey` contains the port of the pedal that was pressed and `AirTurnPortStateKey` contains the state of the pedal, which will be `AirTurnPortStateDown`. For HID devices, `AirTurnKeyCodeKey` contains the key code. For AirDirect devices, `AirTurnPedalRepeatCount` contains the number of key repeats.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnPedalPressNotification;
+AIRTURN_NOTIFICATION AirTurnPedalPressNotification;
 /**
  A notification indicating a pedal was pressed down. The `userInfo` dictionary contains all standard keys and the key `AirTurnPortNumberKey` contains the port of the pedal that was pressed and `AirTurnPortStateKey` contains the state of the pedal, which will be `AirTurnPortStateDown`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnPedalDownNotification;
+AIRTURN_NOTIFICATION AirTurnPedalDownNotification;
 /**
- A notification indicating a pedal was lifted. The `userInfo` dictionary contains all standard keys and the key `AirTurnPortNumberKey` contains the port of the pedal that was lifted and `AirTurnPortStateKey` contains the state of the pedal, which will be `AirTurnPortStateUp`. For PED devices, `AirTurnPedalRepeatCount` contains the number of key repeats that occurred.
+ A notification indicating a pedal was lifted. The `userInfo` dictionary contains all standard keys and the key `AirTurnPortNumberKey` contains the port of the pedal that was lifted and `AirTurnPortStateKey` contains the state of the pedal, which will be `AirTurnPortStateUp`. For AirDirect devices, `AirTurnPedalRepeatCount` contains the number of key repeats that occurred.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnPedalUpNotification;
+AIRTURN_NOTIFICATION AirTurnPedalUpNotification;
+/**
+ A notification indicating a pedal press was cancelled. The `userInfo` dictionary contains all standard keys and the key `AirTurnPortNumberKey` contains the port of the pedal that was cancelled and `AirTurnPortStateKey` contains the state of the pedal, which will be `AirTurnPortStateUp`.
+ */
+AIRTURN_NOTIFICATION AirTurnPedalCancelledNotification;
+
+/**
+A type for all AirTurnPedal notification user info keys
+*/
+typedef AirTurnNotificationUserInfoKey AirTurnPedalNotificationUserInfoKey NS_TYPED_ENUM;
+#define AIRTURN_PEDAL_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnPedalNotificationUserInfoKey)
 
 /**
  The notification `userInfo` key for the port number. The value is an `NSNumber` object containing an integer which is one of the `AirTurnPort` enum values.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnPortNumberKey;
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnPortNumberKey;
 
 /**
  The notification `userInfo` key for the port state. The value is an `NSNumber` object containing an integer which is one of the `AirTurnPortState` enum values.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnPortStateKey;
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnPortStateKey;
+
+/**
+The notification `userInfo` key for the app action. The value is an `NSString` object which is one of the App Actions set to `AirTurnManager`.
+*/
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnAppActionKey;
 
 /**
  The notification `userInfo` key for the port state from a HID device only. The value is an `NSNumber` object containing an integer which is one of the `AirTurnKeyCode` enum values.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnKeyCodeKey;
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnKeyCodeKey;
 
 /**
- The notification `userInfo` key for the repeat count when a pedal is held. Only present for PED devices. The value is an `NSNumber` object containing an integer representing the number of repeats. This will be 0 on the first pedal press event and increment subsequently.
+ The notification `userInfo` key for the underlying event type that triggered this notification. The value is an `NSNumber` object containing an integer which is one of the `AirTurnUnderlyingEventType` enum values.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnPedalRepeatCount;
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnUnderlyingEventTypeKey;
+
+/**
+ The notification `userInfo` key for the underlying event key input for this notification. The value is an `NSString` object which is one of the `UIKeyInput` values, or a string representing a key. This key will only be present if the `AirTurnUnderlyingEventTypeKey` is `AirTurnUnderlyingEventTypeKeyCommand`.
+ */
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnUnderlyingEventKeyInputKey;
+
+/**
+ The notification `userInfo` key for the underlying event HID usage for this notification. The value is an `NSNumber` object containing an integer which is one of the `UIKeyboardHIDUsage` enum values. This key will only be present if the `AirTurnUnderlyingEventTypeKey` is `AirTurnUnderlyingEventTypePresses`.
+ */
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnUnderlyingEventHIDUsageKey;
+
+/**
+ The notification `userInfo` key for the repeat count when a pedal is held. Only present For AirDirect devices. The value is an `NSNumber` object containing an integer representing the number of repeats. This will be 0 on the first pedal press event and increment subsequently.
+ */
+AIRTURN_PEDAL_NOTIFICATION_KEY AirTurnPedalRepeatCountKey;
 
 /// ---------------------------------
 /// @name Analog port Notifications
@@ -95,7 +140,17 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnPedalRepeatCount;
 /**
  A notification indicating the analog port value changed. The `userInfo` dictionary contains all standard keys and the key `AirTurnPortNumberKey` contains the port that has changed.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnAnalogPortValueChangeNotification;
+AIRTURN_NOTIFICATION AirTurnAnalogPortValueChangeNotification;
+
+/**
+A type for all AirTurnAnalog notification user info keys
+*/
+typedef AirTurnNotificationUserInfoKey AirTurnAnalogNotificationUserInfoKey NS_TYPED_ENUM;
+#define AIRTURN_ANALOG_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnAnalogNotificationUserInfoKey)
+/**
+ The notification `userInfo` key for the port value. The value is an `NSNumber` object containing an integer of type `AirTurnPortValue`.
+ */
+AIRTURN_ANALOG_NOTIFICATION_KEY AirTurnAnalogPortValueKey;
 
 /// ---------------------------------
 /// @name BTLE Central State Notifications
@@ -104,12 +159,18 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnAnalogPortValueChangeNotificatio
 /**
  A notification indicating the state of the central has changed. The `userInfo` key `AirTurnCentralStateKey` contains an `NSNumber` object containing an integer which is one of the `AirTurnCentralState` enum values
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnCentralStateChangedNotification;
+AIRTURN_NOTIFICATION AirTurnCentralStateChangedNotification;
+
+/**
+A type for all AirTurnCentral notification user info keys
+*/
+typedef AirTurnNotificationUserInfoKey AirTurnCentralNotificationUserInfoKey NS_TYPED_ENUM;
+#define AIRTURN_CENTRAL_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnCentralNotificationUserInfoKey)
 
 /**
  The notification `userInfo` key for the new central state. The value is an `NSNumber` object containing one of the `AirTurnCentralState` enum values
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnCentralStateKey;
+AIRTURN_CENTRAL_NOTIFICATION_KEY AirTurnCentralStateKey;
 
 
 /// ---------------------------------
@@ -119,17 +180,23 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnCentralStateKey;
 /**
  A notification indicating the list of BTLE Devices discovered has changed. The `userInfo` dictionary contains all standard keys and the key `AirTurnDiscoveredPeripheralsKey` contains the set of all discovered devices, and `AirTurnPeripheralKey` contains the device just discovered
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDiscoveredNotification;
+AIRTURN_NOTIFICATION AirTurnDiscoveredNotification;
+
+/**
+A type for all AirTurnDiscovered notification user info keys
+*/
+typedef AirTurnNotificationUserInfoKey AirTurnDiscoveredNotificationUserInfoKey NS_TYPED_ENUM;
+#define AIRTURN_DISCOVERED_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnDiscoveredNotificationUserInfoKey)
 
 /**
  The notification `userInfo` key for all discovered BTLE devices. The value is an `NSSet` object containing `AirTurnPeripheral` objects. Pass a peripheral object back to `-connectToAirTurn:` on `AirTurnCentral` to connect.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDiscoveredPeripheralsKey;
+AIRTURN_DISCOVERED_NOTIFICATION_KEY AirTurnDiscoveredPeripheralsKey;
 
 /**
  A notification indicating the list of BTLE Devices discovered has changed. The `userInfo` dictionary contains all standard keys and the key `AirTurnDiscoveredDevicesKey` contains the set of all discovered devices, and `AirTurnPeripheralKey` contains the device just lost. The device could have been lost if we have not received an advertising packet within a 10 second window, 10 seconds after disconnecting from a device without receiving an advertising packet, or when the state of the Bluetooth radio changes.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnLostNotification;
+AIRTURN_NOTIFICATION AirTurnLostNotification;
 
 /// ---------------------------------
 /// @name Connection Notifications
@@ -138,34 +205,35 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnLostNotification;
 /**
  A notification indicating the BTLE central is connecting to an AirTurn. The `userInfo` dictionary contains all standard keys.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnConnectingNotification;
+AIRTURN_NOTIFICATION AirTurnConnectingNotification;
 
 /**
  A notification indicating the connection state changed. The `userInfo` dictionary contains all standard keys and the key `AirTurnConnectionStateKey` contains the new connection state. Works with AirDirect and Keyboard. Only sent in Keyboard mode if automatic keyboard management is enabled, see `AirTurnViewManager.connected` for more info.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnConnectionStateChangedNotification;
+AIRTURN_NOTIFICATION AirTurnConnectionStateChangedNotification;
 /**
  A notification indicating an AirTurn device connected. The `userInfo` dictionary contains all standard keys and the key `AirTurnConnectionStateKey` contains the new connection state. Works with AirDirect and Keyboard. Only sent in Keyboard mode if automatic keyboard management is enabled, see `AirTurnViewManager.connected` for more info.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidConnectNotification;
+AIRTURN_NOTIFICATION AirTurnDidConnectNotification;
 /**
  A notification indicating an AirTurn device failed to connect. The `userInfo` dictionary contains all standard keys and the key `AirTurnConnectionStateKey` contains the new connection state
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidFailToConnectNotification;
+AIRTURN_NOTIFICATION AirTurnDidFailToConnectNotification;
 /**
  A notification indicating an AirTurn device disconnected. The `userInfo` dictionary contains all standard keys and the key `AirTurnConnectionStateKey` contains the new connection state. Works with AirDirect and Keyboard. Only sent in Keyboard mode if automatic keyboard management is enabled, see `AirTurnViewManager.connected` for more info.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidDisconnectNotification;
+AIRTURN_NOTIFICATION AirTurnDidDisconnectNotification;
+
+/**
+A type for all AirTurnConnection notification user info keys
+*/
+typedef AirTurnNotificationUserInfoKey AirTurnConnectionNotificationUserInfoKey NS_TYPED_ENUM;
+#define AIRTURN_CONNECTION_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnConnectionNotificationUserInfoKey)
 
 /**
  The notification `userInfo` key for the connected state. The value is an `NSNumber` object containing an integer which is one of the `AirTurnConnectionState` enum values
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnConnectionStateKey;
-
-/**
- The notification `userInfo` key for the error. The value is an `NSError` object.
- */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnErrorKey;
+AIRTURN_CONNECTION_NOTIFICATION_KEY AirTurnConnectionStateKey;
 
 /// ---------------------------------
 /// @name Storage notifications
@@ -174,17 +242,17 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnErrorKey;
 /**
  A notification indicating an AirTurn device was added. The `userInfo` dictionary contains all standard keys
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnAddedNotification;
+AIRTURN_NOTIFICATION AirTurnAddedNotification;
 
 /**
  A notification indicating an AirTurn device was removed. The `userInfo` dictionary contains all standard keys
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnRemovedNotification;
+AIRTURN_NOTIFICATION AirTurnRemovedNotification;
 
 /**
  A notification indicating an AirTurn device was invalidated, meaning the identifier originally used is no longer valid and your Application should removed any stored data relating to that identifier. This notification can only occur at App start. The `userInfo` key `AirTurnIDKey` contains a unique identifier string for the device.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnInvalidatedNotification;
+AIRTURN_NOTIFICATION AirTurnInvalidatedNotification;
 
 /// ---------------------------------
 /// @name Peripheral Notifications
@@ -193,27 +261,27 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnInvalidatedNotification;
 /**
  A notification indicating the current mode of the peripheral has changed. The `userInfo` dictionary contains all standard keys. The posting object is the `AirTurnPeripheral`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidUpdateCurrentModeNotification;
+AIRTURN_NOTIFICATION AirTurnDidUpdateCurrentModeNotification;
 
 /**
  A notification indicating the name of the peripheral has changed. The `userInfo` dictionary contains all standard keys. The posting object is the `AirTurnPeripheral`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidUpdateNameNotification;
+AIRTURN_NOTIFICATION AirTurnDidUpdateNameNotification;
 
 /**
  A notification indicating the charging state of the peripheral has changed. The `userInfo` dictionary contains all standard keys. The posting object is the `AirTurnPeripheral`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidUpdateChargingStateNotification;
+AIRTURN_NOTIFICATION AirTurnDidUpdateChargingStateNotification;
 
 /**
  A notification indicating the battery level of the peripheral has changed. The `userInfo` dictionary contains all standard keys. The posting object is the `AirTurnPeripheral`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidUpdateBatteryLevelNotification;
+AIRTURN_NOTIFICATION AirTurnDidUpdateBatteryLevelNotification;
 
 /**
  A notification indicating the pairing state of the peripheral has changed. The `userInfo` dictionary contains all standard keys. The posting object is the `AirTurnPeripheral`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidUpdatePairingStateNotification;
+AIRTURN_NOTIFICATION AirTurnDidUpdatePairingStateNotification;
 
 /// ---------------------------------
 /// @name Keyboard Notifications
@@ -222,47 +290,53 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnDidUpdatePairingStateNotificatio
 /**
  A notification indicating automatic keyboard management was enabled or disabled.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnAutomaticKeyboardManagementEnabledChangedNotification;
+AIRTURN_NOTIFICATION AirTurnAutomaticKeyboardManagementEnabledChangedNotification;
 
 /**
  A notification indicating the virtual keyboard will be displayed.  The posting object is the `AirTurnKeyboardManager` shared object. The `userInfo` dictionary contains the keys `AirTurnVirtualKeyboardFrameBeginUserInfoKey`, `AirTurnVirtualKeyboardFrameEndUserInfoKey`, `AirTurnVirtualKeyboardAnimationCurveUserInfoKey` and `AirTurnVirtualKeyboardAnimationDurationUserInfoKey`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardWillShowNotification;
+AIRTURN_NOTIFICATION AirTurnVirtualKeyboardWillShowNotification;
 
 /**
  A notification indicating the virtual keyboard was displayed.  The posting object is the `AirTurnKeyboardManager` shared object. The `userInfo` dictionary contains the keys `AirTurnVirtualKeyboardFrameBeginUserInfoKey`, `AirTurnVirtualKeyboardFrameEndUserInfoKey`, `AirTurnVirtualKeyboardAnimationCurveUserInfoKey` and `AirTurnVirtualKeyboardAnimationDurationUserInfoKey`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardDidShowNotification;
+AIRTURN_NOTIFICATION AirTurnVirtualKeyboardDidShowNotification;
 
 /**
  A notification indicating the virtual keyboard will be hidden.  The posting object is the `AirTurnKeyboardManager` shared object. The `userInfo` dictionary contains the keys `AirTurnVirtualKeyboardFrameBeginUserInfoKey`, `AirTurnVirtualKeyboardFrameEndUserInfoKey`, `AirTurnVirtualKeyboardAnimationCurveUserInfoKey` and `AirTurnVirtualKeyboardAnimationDurationUserInfoKey`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardWillHideNotification;
+AIRTURN_NOTIFICATION AirTurnVirtualKeyboardWillHideNotification;
 
 /**
  A notification indicating the virtual keyboard was hidden.  The posting object is the `AirTurnKeyboardManager` shared object. The `userInfo` dictionary contains the keys `AirTurnVirtualKeyboardFrameBeginUserInfoKey`, `AirTurnVirtualKeyboardFrameEndUserInfoKey`, `AirTurnVirtualKeyboardAnimationCurveUserInfoKey` and `AirTurnVirtualKeyboardAnimationDurationUserInfoKey`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardDidHideNotification;
+AIRTURN_NOTIFICATION AirTurnVirtualKeyboardDidHideNotification;
+
+/**
+A type for all AirTurnVirtualKeyboard notification user info keys
+*/
+typedef AirTurnNotificationUserInfoKey AirTurnVirtualKeyboardNotificationUserInfoKey NS_TYPED_ENUM;
+#define AIRTURN_VIRTUAL_KEYBOARD_NOTIFICATION_KEY AIRTURN_STRING_CONST(AirTurnVirtualKeyboardNotificationUserInfoKey)
 
 /**
  The notification `userInfo` key for the frame of the keyboard at the beginning of an animation at a show/hide notification.  The value is an `NSValue` object containing a `CGRect`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardFrameBeginUserInfoKey;
+AIRTURN_VIRTUAL_KEYBOARD_NOTIFICATION_KEY AirTurnVirtualKeyboardFrameBeginUserInfoKey;
 
 /**
  The notification `userInfo` key for the frame of the keyboard at the end of an animation at a show/hide notification.  The value is an `NSValue` object containing a `CGRect`.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardFrameEndUserInfoKey;
+AIRTURN_VIRTUAL_KEYBOARD_NOTIFICATION_KEY AirTurnVirtualKeyboardFrameEndUserInfoKey;
 
 /**
  The notification `userInfo` key for the keyboard animation curve at a show/hide notification.  The value is an `NSNumber` object containing a `UIViewAnimationCurve` constant.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardAnimationCurveUserInfoKey;
+AIRTURN_VIRTUAL_KEYBOARD_NOTIFICATION_KEY AirTurnVirtualKeyboardAnimationCurveUserInfoKey;
 
 /**
  The notification `userInfo` key for the keyboard animation duration at a show/hide notification.  The value is an `NSNumber` object containing a `double` that identifies the duration of the animation in seconds.
  */
-AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardAnimationDurationUserInfoKey;
+AIRTURN_VIRTUAL_KEYBOARD_NOTIFICATION_KEY AirTurnVirtualKeyboardAnimationDurationUserInfoKey;
 
 /// ---------------------------------
 /// @name enums
@@ -272,7 +346,7 @@ AIRTURN_EXTERN NSString * _Nonnull const AirTurnVirtualKeyboardAnimationDuration
 /**
  Represents the current mode of the AirTurn
  */
-typedef NS_ENUM(NSUInteger, AirTurnMode) {
+typedef NS_ENUM(NSInteger, AirTurnMode) {
     /**
      No mode
      */
@@ -396,6 +470,35 @@ typedef NS_ENUM(NSInteger, AirTurnPortState) {
 };
 
 /**
+ Constants defining the underlying event types
+ */
+typedef NS_ENUM(NSInteger, AirTurnUnderlyingEventType) {
+    /**
+     AirDirect underlying event type
+     */
+    AirTurnUnderlyingEventTypeAirDirect,
+    /**
+     Text input underlying event type, triggered from detecting text input events on the first responder
+     */
+    AirTurnUnderlyingEventTypeTextInput,
+    /**
+     Key command underlying event type, triggered from a `UIKeyCommand` performed on the first responder
+     */
+    AirTurnUnderlyingEventTypeKeyCommand,
+    /**
+     Presses underlying event type, triggered from a `presses(Began|Ended|Cancelled)` performed on the first responder
+     */
+    AirTurnUnderlyingEventTypePresses,
+};
+
+/**
+ A function that can be used to determine if an underlying event type will provide separate up and down pedal events, or if the up and down events will be sent simultaneously
+ @param eventType The event type
+ @return `YES` if separate up and down pedal events will be sent for the event type, `NO` otherwise.
+ */
+BOOL AirTurnUnderlyingEventTypeHasSeparateUpDownEvents(AirTurnUnderlyingEventType eventType);
+
+/**
  Constants defining the AirTurn device type. If the device is connected via HID the device type cannot be determined and so will be `AirTurnDeviceTypeUnknown`
  */
 typedef NS_ENUM(NSInteger, AirTurnDeviceType) {
@@ -416,11 +519,11 @@ typedef NS_ENUM(NSInteger, AirTurnDeviceType) {
      */
     AirTurnDeviceTypePED,
     /**
-     AirTurn virtual PED device type
+     AirTurn virtual AirTurn device type
      */
     AirTurnDeviceTypeVirtualAirTurn,
     /**
-     AirTurn PED device type
+     AirTurn PEDpro device type
      */
     AirTurnDeviceTypePEDpro,
     /**
@@ -468,7 +571,7 @@ typedef NS_ENUM(NSInteger, AirTurnDeviceType) {
 /**
  Constants defining the type of inputs the AirTurn has.
  */
-typedef NS_ENUM(NSUInteger, AirTurnInputType) {
+typedef NS_ENUM(NSInteger, AirTurnInputType) {
 	/**
 	 AirTurn has 'port' inputs. Examples include older keyboard only devices and unknown devices.
 	 */
@@ -488,7 +591,11 @@ typedef NS_ENUM(NSUInteger, AirTurnInputType) {
 	/**
 	 AirTurn has 'button' inputs. Examples include DIGITIII
 	 */
-	AirTurnInputTypeButton
+	AirTurnInputTypeButton,
+    /**
+     AirTurn has both 'ports' and directional pad inputs. Examples include BT200
+     */
+    AirTurnInputTypePortsAndPad
 };
 
 /**
@@ -528,7 +635,7 @@ typedef NS_ENUM(NSInteger, AirTurnConnectionState) {
 /**
  Defines which features are available for a mode
  */
-typedef NS_OPTIONS(uint16_t, AirTurnModeFeatures) {
+typedef NS_OPTIONS(NSInteger, AirTurnModeFeatures) {
     /**
      Digital port config is available for this mode
      */
@@ -570,7 +677,7 @@ typedef NS_OPTIONS(uint16_t, AirTurnModeFeatures) {
 /**
  Defines the charging states
  */
-typedef NS_ENUM(uint8_t, AirTurnPeripheralChargingState) {
+typedef NS_ENUM(NSInteger, AirTurnPeripheralChargingState) {
     /**
      The device is not connected to external power and is discharging
      */
@@ -634,7 +741,7 @@ typedef NS_ENUM(NSInteger, AirTurnCentralState) {
 /**
  The pairing state between the central and peripheral
  */
-typedef NS_ENUM(uint8_t, AirTurnPeripheralPairingState) {
+typedef NS_ENUM(NSInteger, AirTurnPeripheralPairingState) {
     /**
      There is no pairing between the central and peripheral
      */
@@ -648,7 +755,7 @@ typedef NS_ENUM(uint8_t, AirTurnPeripheralPairingState) {
 /**
  A type for analog values
  */
-typedef int16_t AirTurnPortValue;
+typedef NSInteger AirTurnPortValue;
 
 /**
  The maximum possible analog value
@@ -662,4 +769,9 @@ extern const AirTurnPortValue AirTurnPortValueMin;
 /**
  Defines the low battery level cut off
  */
-extern const uint8_t AirTurnPeripheralLowBatteryLevel;
+extern const NSInteger AirTurnPeripheralLowBatteryLevel;
+
+/**
+ A type for App actions. Can be any object which implements NSCopying and NSCoding, such as any property list object: NSData, NSString, NSNumber, NSDate, NSArray, or NSDictionary
+ */
+typedef id<NSObject, NSCopying, NSCoding> AirTurnAppAction;

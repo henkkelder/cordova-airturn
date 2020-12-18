@@ -10,11 +10,12 @@
 #import <UIKit/UIKit.h>
 #import <AirTurnInterface/AirTurnTypes.h>
 #import <AirTurnInterface/ARCHelper.h>
+#import <AirTurnInterface/AirTurnDeviceProtocol.h>
 
 /**
  The `AirTurnViewManager` class manages the shared `AirTurnView` object, controlling its location in the view heirarchy, first responder state, and managing the keyboard appropriately.
  */
-@interface AirTurnViewManager : NSObject
+@interface AirTurnViewManager : NSObject <AirTurnDeviceProtocol>
 
 /// ---------------------------------
 /// @name Singleton methods
@@ -60,6 +61,21 @@
  Performs operations synchronously on the main queue – if you are calling from another queue, use `dispatch_async` with the main queue when setting.
  */
 @property(nonatomic, assign) BOOL paused;
+
+/**
+ Indicates if a specific digital port is available on any connected AirTurn
+ 
+ @param port The port
+ @return YES if the port is available
+ */
+- (BOOL)digitalPortAvailable:(AirTurnPort)port;
+
+/**
+ Get the port state for a given port on any AirTurn in which it is pressed
+ @param port The port
+ @return The port state
+ */
+- (AirTurnPortState)digitalPortState:(AirTurnPort)port;
 
 /// ---------------------------------
 /// @name Parent view management
@@ -113,5 +129,10 @@
  @discussion When tapped, web views enter a strange state where they are first responder even if there is no text field active in the web view, but their `isFirstResponder` property is NO, even if there *is* a text field active in the web view. By default, the framework allows this behaviour and will not revert first responder status to `AirTurnView` when a web view is first responder. If this property is `YES`, `AirTurnView` will automatically regain first responder from web views when they become first responder.
  */
 @property(nonatomic, assign) BOOL preventWebViewFirstResponders;
+
+/**
+ An optional block that will be called when the first responder changes to determine if `AirTurnViewManager` should recapture first responder status from the responder for `AirTurnView`. Will be called every time `AirTurnViewManager` needs to determine if it should recapture first responder, and the provided first responder may be `nil` if there is no first responder or the first responder can't be found.
+ */
+@property(nonatomic, strong, nullable) BOOL (^shouldRecaptureFromFirstResponder)(UIResponder *_Nullable responder);
 
 @end

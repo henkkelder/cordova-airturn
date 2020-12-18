@@ -28,7 +28,7 @@
     </config-file>
 
     <header-file src="src/ios/AirTurn.h" />
-    <header-file src="src/ios/AirTurnUI/AirTurnUIConnectionController.h" />
+    <header-file src="src/ios/AirTurnUI/AirTurnUI.h" />
     <header-file src="src/ios/CocoaLumberjack/Benchmarking/BaseNSLogging.h" />
     <header-file src="src/ios/CocoaLumberjack/Benchmarking/DynamicLogging.h" />
     <header-file src="src/ios/CocoaLumberjack/Benchmarking/PerformanceTesting.h" />
@@ -51,7 +51,7 @@
     <header-file src="src/ios/Drop-in/NBTableViewController.h" />
 
     <source-file src="src/ios/AirTurn.m" />
-    <source-file src="src/ios/AirTurnUI/AirTurnUIConnectionController.m" />
+    <source-file src="src/ios/AirTurnUI/AirTurnUI.m" />
 
     <source-file src="src/ios/CocoaLumberjack/Benchmarking/BaseNSLogging.m" />
     <source-file src="src/ios/CocoaLumberjack/Benchmarking/DynamicLogging.m" />
@@ -73,10 +73,10 @@
     <resource-file src="src/ios/Main.storyboard" target="./Main.storyboard" />
     <resource-file src="src/ios/AirTurnUI/AirTurnUIImages.xcassets" />
 
-    <resource-file src="src/ios/AirTurnUI/AirTurnUIImages.xcassets/battery-validating.imageset/Contents.json" target="battery-validating" />-->
+    <resource-file src="src/ios/AirTurnUI/AirTurnUIImages.xcassets/battery-validating.imageset/Contents.json" target="battery-validating" />
 
     <framework src="CoreBluetooth.framework" />
-    <framework src="src/ios/Framework-static/AirTurnInterface.framework" custom="true" />
+    <framework src="src/ios/Framework-static/AirTurnInterface.xcframework" custom="true" />
 
     <config-file parent="/*" target="config.xml">
       <feature name="airturn">

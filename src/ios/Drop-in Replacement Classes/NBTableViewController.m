@@ -57,7 +57,7 @@
 
 - (void)adjustTableView {
 	UITableView *v = (UITableView *)self.view;
-	UIEdgeInsets i = UIEdgeInsetsMake(0, 0, self.keyboardManager.isKeyboardVisible ? self.keyboardManager.keyboardFrameIncludingBar.size.height : 0, 0);
+	UIEdgeInsets i = UIEdgeInsetsMake(0, 0, self.keyboardManager.isKeyboardVisible ? self.keyboardManager.keyboardFrameIncludingAssistantAccessoryDismissBar.size.height : 0, 0);
 	v.contentInset = i;
 	v.scrollIndicatorInsets = i;
 }

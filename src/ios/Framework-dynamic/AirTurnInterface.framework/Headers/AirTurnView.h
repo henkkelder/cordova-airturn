@@ -107,6 +107,30 @@
  */
 - (BOOL)resignFirstResponderNoDelegate;
 
+/**
+ If set to `YES`, and `AirTurnView` is sent a message which it does not respond to, and the object in `AirTurnKeyboardStateMonitor.sharedMonitor.firstResponderBeforeRecapture` responds to that selector or provides a method invocation for it, then `AirTurnView` will return `AirTurnKeyboardStateMonitor.sharedMonitor.firstResponderBeforeRecapture` from `-[AirTurnView forwardingTargetForSelector:]`. Default `NO`.
+ */
+@property(nonatomic, assign) BOOL shouldForwardToFirstResponderBeforeRecapture;
+
+/// ---------------------------------
+/// @name State
+/// ---------------------------------
+
+/**
+ Indicates if a specific digital port is available on any connected AirTurn
+ 
+ @param port The port
+ @return YES if the port is available
+ */
+- (BOOL)digitalPortAvailable:(AirTurnPort)port;
+
+/**
+ Get the port state for a given port on any AirTurn in which it is pressed
+ @param port The port
+ @return The port state
+ */
+- (AirTurnPortState)digitalPortState:(AirTurnPort)port;
+
 @end
 
 /**
@@ -206,11 +230,35 @@
 /// ---------------------------------
 
 /**
+ The `AirTurnView` did detect a port "down" action
+ 
+ @param port The port that the action occurred on
+ @param userinfo A dictionary containing AirTurnPedalNotificationUserInfoKey keys
+ */
+- (void)AirTurnViewPortDown:(AirTurnPort)port userinfo:(nonnull NSDictionary<AirTurnPedalNotificationUserInfoKey, id> *)userinfo;
+
+/**
  The `AirTurnView` did detect a port action
  
  @param port The port that the action occurred on
- @param key  Any associated key code
+ @param userinfo A dictionary containing AirTurnPedalNotificationUserInfoKey keys
  */
-- (void)AirTurnViewPortPressed:(AirTurnPort)port key:(AirTurnKeyCode)key;
+- (void)AirTurnViewPortPressed:(AirTurnPort)port userinfo:(nonnull NSDictionary<AirTurnPedalNotificationUserInfoKey, id> *)userinfo;
+
+/**
+ The `AirTurnView` did detect a port "up" action
+ 
+ @param port The port that the action occurred on
+ @param userinfo A dictionary containing AirTurnPedalNotificationUserInfoKey keys
+ */
+- (void)AirTurnViewPortUp:(AirTurnPort)port userinfo:(nonnull NSDictionary<AirTurnPedalNotificationUserInfoKey, id> *)userinfo;
+
+/**
+ The `AirTurnView` did detect a port "cancelled" action
+ 
+ @param port The port that the action occurred on
+ @param userinfo A dictionary containing AirTurnPedalNotificationUserInfoKey keys
+ */
+- (void)AirTurnViewPortCancelled:(AirTurnPort)port userinfo:(nonnull NSDictionary<AirTurnPedalNotificationUserInfoKey, id> *)userinfo;
 
 @end
